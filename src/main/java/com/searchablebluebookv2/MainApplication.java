@@ -1,4 +1,4 @@
-package com.searchablebluebook.searchablebluebookv2;
+package com.searchablebluebookv2;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

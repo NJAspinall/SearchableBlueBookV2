@@ -4,19 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c85184a0-4536-40f2-a59e-42c20c8323da" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebook/searchablebluebookv2/data/universalBeams/UB-secpropsdimsprops.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebook/searchablebluebookv2/models/Dimensions.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebook/searchablebluebookv2/reader/SteelReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebook/searchablebluebookv2/reader/UBReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebook/searchablebluebookv2/sections/UniversalBeam.java" afterDir="false" />
+    <list default="true" id="c85184a0-4536-40f2-a59e-42c20c8323da" name="Changes" comment="Added various new classes:&#10;&#10;-custom Reader classes that will read files for seperate steel shapes&#10;&#10;-UniversalBeam - To hold properties found in the tables&#10;&#10;-Dimension - a nested class to be stored inside of each shape class (e.g. UniversalBeam.java)">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/Controller.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/models/Dimensions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/models/Properties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/reader/ReaderFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/reader/SteelReader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/reader/UBReader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/sections/OpenRolledSection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/sections/Section.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/sections/StructuralHollowSection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/sections/UniversalBeam.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/searchablebluebook/searchablebluebookv2/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebook/searchablebluebookv2/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/searchablebluebook/searchablebluebookv2/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebook/searchablebluebookv2/MainApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/searchablebluebook/searchablebluebookv2/reader/ReaderFactoryIF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebook/searchablebluebookv2/reader/ReaderFactoryIF.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/searchablebluebook/searchablebluebookv2/Controller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/searchablebluebook/searchablebluebookv2/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/MainApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/searchablebluebook/searchablebluebookv2/data/universalBeams/UB-secpropsdimsprops.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/data/universalBeams/UB-secpropsdimsprops.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/searchablebluebook/searchablebluebookv2/models/Dimensions.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/searchablebluebook/searchablebluebookv2/reader/ReaderFactoryIF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/reader/ReaderFactoryIF.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/searchablebluebook/searchablebluebookv2/reader/SteelReader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/searchablebluebook/searchablebluebookv2/reader/UBReader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/searchablebluebook/searchablebluebookv2/sections/UniversalBeam.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/searchablebluebook/searchablebluebookv2/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/searchablebluebook/searchablebluebookv2/main-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/searchablebluebook/searchablebluebookv2/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/searchablebluebookv2/main-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +61,8 @@
     "last_opened_file_path": "C:/Users/natha/IdeaProjects/SearchableBlueBookV2/src/main/java/com/searchablebluebook/searchablebluebookv2/data/universalbeams",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.fileTypes"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -59,9 +70,9 @@
       <recent name="C:\Users\natha\IdeaProjects\SearchableBlueBookV2\src\main\java\com\searchablebluebook\searchablebluebookv2\data\universalbeams" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MainApplication">
-    <configuration name="MainApplication" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.searchablebluebook.searchablebluebookv2.MainApplication" />
+  <component name="RunManager" selected="Application.com.searchablebluebookv2.MainApplication">
+    <configuration name="com.searchablebluebookv2.MainApplication" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.searchablebluebookv2.MainApplication" />
       <module name="SearchableBlueBookV2" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -91,7 +102,7 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Application.MainApplication" />
+      <item itemvalue="Application.com.searchablebluebookv2.MainApplication" />
       <item itemvalue="Maven.SearchableBlueBookV2" />
     </list>
   </component>
@@ -104,6 +115,14 @@
       <option name="presentableId" value="Default" />
       <updated>1660751505634</updated>
     </task>
+    <task id="LOCAL-00001" summary="Added various new classes:&#10;&#10;-custom Reader classes that will read files for seperate steel shapes&#10;&#10;-UniversalBeam - To hold properties found in the tables&#10;&#10;-Dimension - a nested class to be stored inside of each shape class (e.g. UniversalBeam.java)">
+      <created>1660830940081</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1660830940081</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -116,5 +135,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added various new classes:&#10;&#10;-custom Reader classes that will read files for seperate steel shapes&#10;&#10;-UniversalBeam - To hold properties found in the tables&#10;&#10;-Dimension - a nested class to be stored inside of each shape class (e.g. UniversalBeam.java)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added various new classes:&#10;&#10;-custom Reader classes that will read files for seperate steel shapes&#10;&#10;-UniversalBeam - To hold properties found in the tables&#10;&#10;-Dimension - a nested class to be stored inside of each shape class (e.g. UniversalBeam.java)" />
   </component>
 </project>

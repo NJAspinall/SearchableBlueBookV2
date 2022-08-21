@@ -1,4 +1,4 @@
-package com.searchablebluebook.searchablebluebookv2.reader;
+package com.searchablebluebookv2.reader;
 
 
 /***

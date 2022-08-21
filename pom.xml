@@ -70,7 +70,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                com.searchablebluebook.searchablebluebookv2/com.searchablebluebook.searchablebluebookv2.MainApplication
+                                com.searchablebluebook.searchablebluebookv2/com.searchablebluebookv2.MainApplication
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>

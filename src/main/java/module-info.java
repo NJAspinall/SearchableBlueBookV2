@@ -5,6 +5,6 @@ module com.searchablebluebook.searchablebluebookv2 {
     requires org.controlsfx.controls;
     requires org.kordamp.bootstrapfx.core;
 
-    opens com.searchablebluebook.searchablebluebookv2 to javafx.fxml;
-    exports com.searchablebluebook.searchablebluebookv2;
+    opens com.searchablebluebookv2 to javafx.fxml;
+    exports com.searchablebluebookv2;
 }
