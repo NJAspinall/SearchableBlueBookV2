@@ -2,9 +2,6 @@ package com.searchablebluebookv2.sections;
 
 public class OpenRolledSection extends Section {
 
-    public String preDesignation;
-
-    public String subDesignation;
 
     /***
      * Constructor
@@ -12,20 +9,20 @@ public class OpenRolledSection extends Section {
      * @param subDes
      */
     public OpenRolledSection(String preDes, String subDes) {
-        this.preDesignation = preDes;
-        this.subDesignation = subDes;
+        super(preDes, subDes);
     }
 
     /** @return preDesignation
      */
+    @Override
     public String getPreDesignation() {
-        return preDesignation;
+        return super.getPreDesignation();
     }
 
 
     /** @return subDesignation
      */
     public String getSubDesignation() {
-        return subDesignation;
+        return super.getSubDesignation();
     }
 }

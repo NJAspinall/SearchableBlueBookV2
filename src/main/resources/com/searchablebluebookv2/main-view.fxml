@@ -5,11 +5,60 @@
 <?import javafx.scene.layout.VBox?>
 
 <?import javafx.scene.control.Button?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+
+
+<?import javafx.scene.layout.HBox?>
+<?import java.net.URL?>
 <VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.searchablebluebookv2.Controller">
+      fx:controller="com.searchablebluebookv2.Controller" style="-fx-background-color: #000000;">
+    <!-- Set colours for boxes to make it easier to see while coding -->
+    <stylesheets>
+       <!-- <String fx:value="stylesheet.css" /> -->
+        <URL value="@stylesheet.css" />
+    </stylesheets>
+
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
     </padding>
+
+
+    <!-- Controls -->
+
+    <HBox alignment="TOP_LEFT" spacing="10.0" styleClass="searchBox" >
+
+        <!-- Drop down to select OpenRolledSection type -->
+        <ComboBox styleClass="dropDownOne" fx:id="shapeSelect" layoutX="15.0" layoutY="33.0" promptText="Shape" onAction="#onShapeSelect">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Universal Beams (UB)" />
+                    <String fx:value="Universal Columns (UC)" />
+                    <String fx:value="Universal Bearing Piles (UBP)" />
+                    <String fx:value="Parallel Flange Channels (PFC)" />
+                    <String fx:value="Equal Leg Angles (L)" />
+                    <String fx:value="Unequal Leg Angles (L)" />
+                    <String fx:value="Back to back Equal Leg Angles (L)" />
+                    <String fx:value="Back to back Unequal Leg Angles (L)" />
+                    <String fx:value="Tees (T) split from UB" />
+                    <String fx:value="Tees (T) split from UC" />
+                </FXCollections>
+            </items>
+        </ComboBox>
+
+        <!-- Dropdown to select preDesignation -->
+        <ComboBox styleClass="dropDownTwo" fx:id="preDesSelect" onAction="#onPreDesSelect">
+
+        </ComboBox>
+
+        <!-- Dropdown to select subDesignation -->
+        <ComboBox styleClass="dropDownTwo" fx:id="subDesSelect" onAction="#onSubDesSelect">
+
+        </ComboBox>
+    </HBox>
+
 
     <Label fx:id="welcomeText"/>
     <Button text="Hello!" onAction="#onHelloButtonClick"/>

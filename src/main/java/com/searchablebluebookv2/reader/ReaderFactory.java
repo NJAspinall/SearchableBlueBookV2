@@ -7,7 +7,7 @@ public class ReaderFactory implements ReaderFactoryIF {
      */
     @Override
     public SteelReader createReader(String discrim) {
-        if(discrim.equals("(UB) Universal Beams")) {
+        if(discrim.equals("Universal Beams (UB)")) {
             return new UBReader();
         }
 

@@ -9,14 +9,21 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
 
+
+/***
+ * This class will read various CSV files containing information for Universal Beams.
+ *
+ * @author Nathan Aspinall
+ */
 public class UBReader extends SteelReader {
 
+    //Dimensions & Properties table (csv file)
     public static String DIMPROPS = "src/main/java/com/searchablebluebookv2/data/universalBeams/UB-secpropsdimsprops.csv";
 
 
-
-
-
+    /***
+     * Constructor
+     */
     public UBReader() {
 
     }
@@ -25,9 +32,14 @@ public class UBReader extends SteelReader {
 
     //method to read dimension and properties
 
-    public List<Section> readDimensionsAndProperties() {
+    /***
+     * Method to read the dimensions and properties of UniversalBeams line by line into
+     * a 2D array.
+     * @return
+     */
+    public List<List<String>> readDimensionsAndProperties() {
 
-        List<Section> sections = new ArrayList<>();
+        List<List<String>> sections = new ArrayList<>();
 
         int count = 0;
 
@@ -45,46 +57,7 @@ public class UBReader extends SteelReader {
                     List<String> line = new LinkedList<String>(Arrays.asList(data.split(",")));
 
                     if(line.size() >= 5) { //do not read empty lines or lines containing notes and comments
-                        try {
-
-                            /* Logic to get data from each line */
-
-                            //Create a new UniversalBeam object and set the Designations
-                            UniversalBeam newBeam = new UniversalBeam(line.get(0), line.get(1));
-
-
-                            //Dimensions are stored within an object
-                            List<String> dimens = line.subList(2, 17);
-                            newBeam.dimensions = new Dimensions(dimens);
-                            //Properties are stored within an object
-                            List<String> props = line.subList(17, 30);
-                            newBeam.properties = new Properties(props);
-
-
-                            sections.add(newBeam);
-
-
-                            /*
-                            System.out.println("'dimens' contents: ");
-                            for(String s : dimens) {
-                                System.out.println(s);
-                            }
-
-                            System.out.println("'props' contents: ");
-                            for(String s : props) {
-                                System.out.println(s);
-                            }
-                            */
-
-
-
-                            //return list of UniversalBeam objects
-
-
-                        } catch (InstantiationError e) {
-                            e.printStackTrace();
-                            //System.out.println("Cannot instantiate 'Designation' object");
-                        }
+                        sections.add(line);
                     }
                 }
                 count++;
@@ -100,6 +73,7 @@ public class UBReader extends SteelReader {
             e.printStackTrace();
         }
 
+        //return list of UniversalBeam objects
         return sections;
     }
 

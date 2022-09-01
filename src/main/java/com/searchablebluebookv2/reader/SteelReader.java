@@ -8,6 +8,6 @@ import java.util.List;
 public abstract class SteelReader {
 
 
-    public abstract List<OpenRolledSection> readDimensionsAndProperties();
+    public abstract List<List<String>> readDimensionsAndProperties();
 
 }

@@ -6,7 +6,14 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 
+
+/***
+ * This main class loads the GUI using JavaFX and the FXML Loader.
+ *
+ * @author Nathan Aspinall
+ */
 public class MainApplication extends Application {
 
 

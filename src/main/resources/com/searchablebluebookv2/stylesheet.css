@@ -1,0 +1,21 @@
+
+
+.searchBox {
+    -fx-pref-height: 400px;
+    -fx-fill-width: true;
+    -fx-background-color: red;
+    -fx-alignment: top-left;
+}
+
+
+.dropDownOne {
+    -fx-font-size:16px;
+    -fx-pref-Height: 50.0;
+    -fx-pref-Width: 320.0;
+}
+
+.dropDownTwo {
+    -fx-font-size:16px;
+    -fx-pref-Height: 50.0;
+    -fx-pref-Width: 200.0;
+}
