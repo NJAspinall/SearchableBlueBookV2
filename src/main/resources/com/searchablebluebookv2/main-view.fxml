@@ -14,21 +14,21 @@
 <?import javafx.scene.layout.HBox?>
 <?import java.net.URL?>
 <VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.searchablebluebookv2.Controller" style="-fx-background-color: #000000;">
-    <!-- Set colours for boxes to make it easier to see while coding -->
+      fx:controller="com.searchablebluebookv2.Controller" id="rootContainer">
+
+
     <stylesheets>
-       <!-- <String fx:value="stylesheet.css" /> -->
         <URL value="@stylesheet.css" />
     </stylesheets>
 
     <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
     </padding>
 
 
     <!-- Controls -->
 
-    <HBox alignment="TOP_LEFT" spacing="10.0" styleClass="searchBox" >
+    <HBox spacing="10.0" id="searchBox" >
 
         <!-- Drop down to select OpenRolledSection type -->
         <ComboBox styleClass="dropDownOne" fx:id="shapeSelect" layoutX="15.0" layoutY="33.0" promptText="Shape" onAction="#onShapeSelect">
@@ -49,14 +49,34 @@
         </ComboBox>
 
         <!-- Dropdown to select preDesignation -->
-        <ComboBox styleClass="dropDownTwo" fx:id="preDesSelect" onAction="#onPreDesSelect">
+        <ComboBox styleClass="dropDownTwo" fx:id="preDesSelect" onAction="#onPreDesSelect"
+                  disable="true">
 
         </ComboBox>
 
         <!-- Dropdown to select subDesignation -->
-        <ComboBox styleClass="dropDownTwo" fx:id="subDesSelect" onAction="#onSubDesSelect">
+        <ComboBox styleClass="dropDownTwo" fx:id="subDesSelect" onAction="#onSubDesSelect"
+                  disable="true">
 
         </ComboBox>
+    </HBox>
+
+
+
+    <!-- For checkboxes to include certain sets of properties -->
+    <HBox spacing="5.0" id="supplementBox" >
+        <Label>
+            <String fx:value="supplementary information" />
+        </Label>
+
+    </HBox>
+
+
+
+
+    <HBox spacing="5.0" id="resultsBox" >
+        <Label fx:id="massPerMetre" />
+
     </HBox>
 
 

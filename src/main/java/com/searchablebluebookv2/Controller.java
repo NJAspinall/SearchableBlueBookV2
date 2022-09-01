@@ -27,8 +27,13 @@ import java.util.List;
  */
 public class Controller {
 
+    public Label massPerMetre;
     @FXML
     private Label welcomeText;
+
+
+
+    String selectedPreDes;
 
 
     //UI ComboBox Elements
@@ -70,6 +75,8 @@ public class Controller {
     protected void onShapeSelect(ActionEvent actionEvent) {
         String currentShape = shapeSelect.getValue();
         System.out.println("SHAPE SELECTED : " +currentShape);
+
+        preDesSelect.setDisable(false);
 
         populator = new Populator();
 
@@ -150,8 +157,9 @@ public class Controller {
      */
     @FXML
     public void onPreDesSelect(ActionEvent actionEvent) {
-       String selectedPreDes = preDesSelect.getValue();
+       selectedPreDes = preDesSelect.getValue();
        populateSubDes(selectedPreDes);
+       subDesSelect.setDisable(false);
     }
 
 
@@ -162,5 +170,47 @@ public class Controller {
      */
     @FXML
     public void onSubDesSelect(ActionEvent actionEvent) {
+        populateResults(subDesSelect.getValue());
     }
+
+
+    /***
+     * Test method to display one of the fields of the nested 'Dimensions' object
+     * @param subDes
+     */
+    public void populateResults(String subDes) {
+        UniversalBeam ub = new UniversalBeam("test", "test");
+
+        for(Section s : sections) {
+
+
+            if(s.getPreDesignation().equals(selectedPreDes)) {
+                if (s.getSubDesignation().equals(subDes)) {
+                    System.out.println("success");
+                    ub = (UniversalBeam) s;
+                } else {
+                    System.out.println("Error 2");
+                }
+            } else {
+                System.out.println("Error 1");
+            }
+        }
+
+        massPerMetre.setText(ub.dimensions.areaPerMetre);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

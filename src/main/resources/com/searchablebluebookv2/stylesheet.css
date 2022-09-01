@@ -1,10 +1,30 @@
 
 
-.searchBox {
-    -fx-pref-height: 400px;
+#rootContainer {
+    -fx-background-color: #000000;
+}
+
+
+
+#searchBox {
+    -fx-pref-height: 100px;
     -fx-fill-width: true;
-    -fx-background-color: red;
-    -fx-alignment: top-left;
+    -fx-background-color: #DE2F21;
+}
+
+
+
+#supplementBox {
+    -fx-pref-height: 100px;
+    -fx-fill-width: true;
+    -fx-background-color: #ffffff;
+}
+
+
+#resultsBox {
+    -fx-pref-height: 200px;
+    -fx-fill-width: true;
+    -fx-background-color: #ffffff;
 }
 
 
