@@ -20,6 +20,11 @@ public class UniversalBeam extends OpenRolledSection {
 
 
 
+    @Override
+    public String methodOverrideTest() {
+        return "SubClass";
+    }
+
 
 
 

@@ -15,6 +15,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,9 +28,12 @@ import java.util.List;
  */
 public class Controller {
 
+    @FXML
     public Label massPerMetre;
     @FXML
-    private Label welcomeText;
+    public TableColumn<Section, String> Property;
+    @FXML
+    public TableColumn<Section, String> Value;
 
 
 
@@ -59,11 +63,6 @@ public class Controller {
 
 
 
-
-    @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
-    }
 
 
     /***
@@ -140,6 +139,8 @@ public class Controller {
         //TODO : move this into the populator class
         //find objects with matching sub-designation and add them to combo-box selections
         for(Section s : sections) {
+            s.methodOverrideTest();
+
             if(s.getPreDesignation().equals(selectedPreDes)) {
                 subDesData.add(s.getSubDesignation());
                 subDesSelect.setItems(subDesData);

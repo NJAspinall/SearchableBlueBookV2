@@ -1,5 +1,8 @@
 package com.searchablebluebookv2.sections;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Section {
 
     protected String preDes;
@@ -24,6 +27,20 @@ public class Section {
 
     public String getSubDesignation() {
         return subDes;
+    }
+
+
+    public List<List<String>> toList() {
+        List<List<String>> data = new ArrayList<List<String>>();
+
+        return data;
+    }
+
+
+
+    public String methodOverrideTest() {
+
+        return "Superclass";
     }
 
 
