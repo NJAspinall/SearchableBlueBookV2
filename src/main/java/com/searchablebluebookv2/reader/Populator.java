@@ -2,9 +2,12 @@ package com.searchablebluebookv2.reader;
 
 import com.searchablebluebookv2.models.Dimensions;
 import com.searchablebluebookv2.models.Properties;
+import com.searchablebluebookv2.sections.Section;
 import com.searchablebluebookv2.sections.UniversalBeam;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /***
@@ -46,6 +49,21 @@ public class Populator {
     public List<String> getPreDesList() {
         return preDesList;
     }
+
+
+    /***
+     * TODO: Test this method, may need to cast to UB via switch statement
+     * Takes the given Steel object and returns a list of the names
+     * of all the fields within.
+     * @param section
+     * @return
+     */
+    public List<Field> getFields(Section section) {
+        //Return all field names from the Steel object as a List
+        return Arrays.asList(section.getClass().getFields());
+    }
+
+
 
 
 

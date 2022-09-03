@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c85184a0-4536-40f2-a59e-42c20c8323da" name="Changes" comment="Updated view (now that sceneBuilder works) to have a menu and a slightly better layout. Also removed test button" />
+    <list default="true" id="c85184a0-4536-40f2-a59e-42c20c8323da" name="Changes" comment="Added quit button functionality">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/reader/Populator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/reader/Populator.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -136,7 +139,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662131152563</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Added quit button functionality">
+      <created>1662212994167</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1662212994167</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -183,7 +193,8 @@
     <MESSAGE value="Base Controls set up to make a search for each available designation from Universal Beams, it needs to be extended to all shapes and the retained information needs to be used." />
     <MESSAGE value="Tested that I can draw data from a nested object and display it in the view." />
     <MESSAGE value="Updated view (now that sceneBuilder works) to have a menu and a slightly better layout. Also removed test button" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated view (now that sceneBuilder works) to have a menu and a slightly better layout. Also removed test button" />
+    <MESSAGE value="Added quit button functionality" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added quit button functionality" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
