@@ -9,6 +9,7 @@ import com.searchablebluebookv2.reader.UBReader;
 import com.searchablebluebookv2.sections.OpenRolledSection;
 import com.searchablebluebookv2.sections.Section;
 import com.searchablebluebookv2.sections.UniversalBeam;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -59,6 +60,11 @@ public class Controller {
 
     Populator populator;
 
+
+
+    public void quitApplication() {
+        Platform.exit();
+    }
 
 
 

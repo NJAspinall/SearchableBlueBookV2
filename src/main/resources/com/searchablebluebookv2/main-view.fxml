@@ -21,7 +21,7 @@
         <menus>
             <Menu mnemonicParsing="false" text="File">
                 <items>
-                    <MenuItem mnemonicParsing="false" text="Quit">
+                    <MenuItem mnemonicParsing="false" text="Quit" onAction="#quitApplication">
                         <accelerator>
                             <KeyCodeCombination alt="UP" code="Q" control="ANY" meta="UP" shift="UP" shortcut="UP" />
                         </accelerator>

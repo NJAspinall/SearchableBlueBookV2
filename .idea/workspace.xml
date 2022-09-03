@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c85184a0-4536-40f2-a59e-42c20c8323da" name="Changes" comment="Tested that I can draw data from a nested object and display it in the view.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/sections/Section.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/sections/Section.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/sections/UniversalBeam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/sections/UniversalBeam.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/searchablebluebookv2/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/searchablebluebookv2/main-view.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="c85184a0-4536-40f2-a59e-42c20c8323da" name="Changes" comment="Updated view (now that sceneBuilder works) to have a menu and a slightly better layout. Also removed test button" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -135,7 +129,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662044748517</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Updated view (now that sceneBuilder works) to have a menu and a slightly better layout. Also removed test button">
+      <created>1662131152563</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1662131152563</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -181,7 +182,8 @@
     <MESSAGE value="UniversalBeam holds Dimensions and Properties objects to store the extra fields. also removed an unnecessary package" />
     <MESSAGE value="Base Controls set up to make a search for each available designation from Universal Beams, it needs to be extended to all shapes and the retained information needs to be used." />
     <MESSAGE value="Tested that I can draw data from a nested object and display it in the view." />
-    <option name="LAST_COMMIT_MESSAGE" value="Tested that I can draw data from a nested object and display it in the view." />
+    <MESSAGE value="Updated view (now that sceneBuilder works) to have a menu and a slightly better layout. Also removed test button" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated view (now that sceneBuilder works) to have a menu and a slightly better layout. Also removed test button" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
