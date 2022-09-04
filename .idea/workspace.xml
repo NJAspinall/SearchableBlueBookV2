@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c85184a0-4536-40f2-a59e-42c20c8323da" name="Changes" comment="Added quit button functionality">
+    <list default="true" id="c85184a0-4536-40f2-a59e-42c20c8323da" name="Changes" comment="Added a ListView for testing, tried to add a context menu to the list view but it duplicates each time">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/MainApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/reader/Populator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/reader/Populator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/searchablebluebookv2/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/searchablebluebookv2/main-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +51,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+    "settings.editor.selected.configurable": "Errors"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -146,7 +150,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662212994167</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="added some todo statements and a method to get all field names from a given object">
+      <created>1662213812065</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1662213812065</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -194,7 +205,9 @@
     <MESSAGE value="Tested that I can draw data from a nested object and display it in the view." />
     <MESSAGE value="Updated view (now that sceneBuilder works) to have a menu and a slightly better layout. Also removed test button" />
     <MESSAGE value="Added quit button functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added quit button functionality" />
+    <MESSAGE value="added some todo statements and a method to get all field names from a given object" />
+    <MESSAGE value="Added a ListView for testing, tried to add a context menu to the list view but it duplicates each time" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added a ListView for testing, tried to add a context menu to the list view but it duplicates each time" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
@@ -202,5 +215,9 @@
         <PinnedItemInfo parentTag="com.searchablebluebookv2.Controller" memberName="massPerMetre" />
       </pinned-members>
     </pin-to-top-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

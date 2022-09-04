@@ -4,6 +4,8 @@ import com.searchablebluebookv2.models.Dimensions;
 import com.searchablebluebookv2.models.Properties;
 import com.searchablebluebookv2.sections.Section;
 import com.searchablebluebookv2.sections.UniversalBeam;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -41,8 +43,8 @@ public class Populator {
 
     /***
      * Returns a list of current preDesignations dependent on which steel shape
-     * has been selected. The list is populated as teh objects are read, so it
-     * will always contain the list of the most recently loaded objects.#
+     * has been selected. <br><br> The list is populated as the objects are read, so it
+     * will always contain the list of the most recently loaded objects.
      *
      * @return List<String> - a list of PreDesignations e.g. '1016 x 305'
      */
@@ -52,15 +54,45 @@ public class Populator {
 
 
     /***
-     * TODO: Test this method, may need to cast to UB via switch statement
+     * TODO: Test this method, may need to cast to UB via switch statement. <br><br>
      * Takes the given Steel object and returns a list of the names
-     * of all the fields within.
+     * of all the fields within. <br>
      * @param section
      * @return
      */
     public List<Field> getFields(Section section) {
-        //Return all field names from the Steel object as a List
-        return Arrays.asList(section.getClass().getFields());
+        List<Field> fields = new ArrayList<>();
+
+        String typeName = section.getClass().getName();
+
+        switch (typeName) {
+            case "Universal Beams (UB)" -> {
+
+                //cast to Universal Beam
+                UniversalBeam ub = (UniversalBeam) section;
+                //get all field names and add them to the list of fields
+                fields = Arrays.asList(ub.getClass().getFields());
+                if (fields.isEmpty()) {
+                    System.out.println("Fields Empty");
+                }
+                for (Field f : fields) {
+
+                    if (f.getName().isBlank()) {
+                        System.out.println("Blank Name");
+                    } else {
+                        System.out.println("read : " + f.getName());
+                    }
+                }
+                System.out.println("getFields() Complete.");
+            }
+            //TODO: add more statements for each object type
+
+            case "Universal Columns (UC)" -> {
+
+            }
+        }
+
+        return fields;
     }
 
 
@@ -69,7 +101,7 @@ public class Populator {
 
 
     /***
-     * Formats the returned data from the UniversalBeams file into usable UB objects.
+     * Formats the returned data from the UniversalBeams file into usable UB objects.<br>
      * Also populates the list of pre-designations.
      */
     public void populateUniversalBeams() {

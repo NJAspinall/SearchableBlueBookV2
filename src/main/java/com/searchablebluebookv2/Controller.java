@@ -13,11 +13,14 @@ import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
+import javafx.scene.control.*;
+import javafx.scene.input.ContextMenuEvent;
+import javafx.scene.layout.HBox;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,19 +32,25 @@ import java.util.List;
  */
 public class Controller {
 
+    /**
+     * FXML Control Elements
+     */
     @FXML
     public Label massPerMetre;
     @FXML
     public TableColumn<Section, String> Property;
     @FXML
     public TableColumn<Section, String> Value;
+    @FXML
+    public HBox resultsBox;
+    @FXML
+    public ListView<String> listView = new ListView<>();
 
 
 
-    String selectedPreDes;
-
-
-    //UI ComboBox Elements
+    /**
+     * UI ComboBox Elements
+     **/
     @FXML
     public ComboBox<String> shapeSelect;
     @FXML
@@ -50,30 +59,74 @@ public class Controller {
     public ComboBox<String> subDesSelect;
 
 
+    /**
+     * FXML ContextMenu Elements
+     */
 
+
+
+    /**
+     * User Entered Data Fields
+     */
+    String selectedPreDes;
+
+
+    /**
+     * Current data being read by the application
+     */
     //Holds the currently searched objects
     public List<Section> sections = new ArrayList<>();
 
 
-
+    /**
+     * Packaged Classes
+     */
     SteelReader reader;
 
     Populator populator;
 
 
 
+    /***
+     * Method to allow the user to close the application.
+     */
     public void quitApplication() {
         Platform.exit();
+    }
+
+
+    public void showContextMenu(ContextMenuEvent contextMenuEvent) {
+
+    }
+
+
+
+    public void setContextMenu() {
+
+        MenuItem menuItem = new MenuItem("Refresh");
+
+        menuItem.setOnAction((event) -> {
+            refreshListView();
+        });
+
+        ContextMenu listViewContextMenu = new ContextMenu();
+
+        listViewContextMenu.getItems().add(menuItem);
+        listView.setContextMenu(listViewContextMenu);
     }
 
 
 
 
 
+    public void refreshListView() {
+        listView.refresh();
+    }
+
 
     /***
      * Event Listener for the 'shapeSelect' combo-box, when the shape is selected it
-     * will call the populator class to read the data into relevant objects.
+     * will call the 'populator' class to read the data into relevant objects.
      * @param actionEvent
      */
     @FXML
@@ -191,34 +244,29 @@ public class Controller {
 
         for(Section s : sections) {
 
-
             if(s.getPreDesignation().equals(selectedPreDes)) {
                 if (s.getSubDesignation().equals(subDes)) {
                     System.out.println("success");
                     ub = (UniversalBeam) s;
-                } else {
-                    System.out.println("Error 2");
                 }
-            } else {
-                System.out.println("Error 1");
             }
         }
 
         massPerMetre.setText(ub.dimensions.areaPerMetre);
+
+        //TODO: fields is empty
+        List<Field> fields = populator.getFields(ub);
+
+        ObservableList<String> observableNames = FXCollections.observableArrayList();
+        for(Field f : fields) {
+            observableNames.add("name : " + f.getName());
+        }
+
+        //listView.setItems(observableNames);
+        listView.getItems().addAll(observableNames);
+        listView.refresh();
+        System.out.println("List View Updated");
+
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }

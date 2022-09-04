@@ -30,6 +30,9 @@ public class MainApplication extends Application {
         stage.setTitle("Searchable Blue Book");
         stage.setScene(scene);
         stage.show();
+
+        Controller controller = new Controller();
+        controller.setContextMenu();
     }
 
     public static void main(String[] args) {
