@@ -32,7 +32,7 @@ import java.util.List;
  */
 public class Controller {
 
-    /**
+    /*
      * FXML Control Elements
      */
     @FXML
@@ -48,7 +48,7 @@ public class Controller {
 
 
 
-    /**
+    /*
      * UI ComboBox Elements
      **/
     @FXML
@@ -59,26 +59,26 @@ public class Controller {
     public ComboBox<String> subDesSelect;
 
 
-    /**
+    /*
      * FXML ContextMenu Elements
      */
 
 
 
-    /**
+    /*
      * User Entered Data Fields
      */
     String selectedPreDes;
 
 
-    /**
+    /*
      * Current data being read by the application
      */
     //Holds the currently searched objects
     public List<Section> sections = new ArrayList<>();
 
 
-    /**
+    /*
      * Packaged Classes
      */
     SteelReader reader;
@@ -95,14 +95,10 @@ public class Controller {
     }
 
 
-    public void showContextMenu(ContextMenuEvent contextMenuEvent) {
-
-    }
-
-
-
+    /***
+     * Creates and adds a context menu to the listView when requested
+     */
     public void setContextMenu() {
-
         MenuItem menuItem = new MenuItem("Refresh");
 
         menuItem.setOnAction((event) -> {
@@ -188,7 +184,7 @@ public class Controller {
 
     /***
      * populate 'subDesSelect' combo-box with matching pre-designations
-     * @param selectedPreDes - the currently selected pre-designation measurement
+     * @param selectedPreDes the currently selected pre-designation measurement
      */
     public void populateSubDes(String selectedPreDes) {
 

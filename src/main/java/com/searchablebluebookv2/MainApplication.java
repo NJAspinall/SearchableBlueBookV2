@@ -13,6 +13,7 @@ import java.net.URL;
  * This main class loads the GUI using JavaFX and the FXML Loader.
  *
  * @author Nathan Aspinall
+ * @version 0.9
  */
 public class MainApplication extends Application {
 

@@ -64,26 +64,37 @@ public class Populator {
         List<Field> fields = new ArrayList<>();
 
         String typeName = section.getClass().getName();
+        List<String> tp = Arrays.asList(typeName.split("\\."));
+        typeName = tp.get(tp.size() -1);
 
+        System.out.println("TypeName: " +typeName);
+
+        //TODO: change this method so it can go inside of the nested objects and get their field names too.
+
+        //Test against the objects class name
         switch (typeName) {
-            case "Universal Beams (UB)" -> {
+            case "UniversalBeam" -> {
 
                 //cast to Universal Beam
                 UniversalBeam ub = (UniversalBeam) section;
                 //get all field names and add them to the list of fields
                 fields = Arrays.asList(ub.getClass().getFields());
+
+
+                /*
                 if (fields.isEmpty()) {
                     System.out.println("Fields Empty");
                 }
                 for (Field f : fields) {
+
+                    System.out.println("Next Field :");
 
                     if (f.getName().isBlank()) {
                         System.out.println("Blank Name");
                     } else {
                         System.out.println("read : " + f.getName());
                     }
-                }
-                System.out.println("getFields() Complete.");
+                } */
             }
             //TODO: add more statements for each object type
 

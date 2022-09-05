@@ -11,8 +11,9 @@ public class UniversalBeam extends OpenRolledSection {
 
     /***
      * Constructor
-     * @param preDes
-     * @param subDes
+     * @param preDes The first identifying element of the Steel shape e.g. '1016 x 305'
+     * @param subDes The Second identifying element of the Steel Shape e.g. 'x 584'. This
+     *               represents the mass per metre of the Steel beam shape
      */
     public UniversalBeam(String preDes, String subDes) {
         super(preDes, subDes);

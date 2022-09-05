@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c85184a0-4536-40f2-a59e-42c20c8323da" name="Changes" comment="Added a ListView for testing, tried to add a context menu to the list view but it duplicates each time">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="c85184a0-4536-40f2-a59e-42c20c8323da" name="Changes" comment="Added a ListView for testing, added a context menu to the list view">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/MainApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/reader/Populator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/reader/Populator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/searchablebluebookv2/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/searchablebluebookv2/main-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/sections/UniversalBeam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/sections/UniversalBeam.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,7 +156,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662213812065</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Added a ListView for testing, added a context menu to the list view">
+      <created>1662316059050</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1662316059050</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -207,7 +213,8 @@
     <MESSAGE value="Added quit button functionality" />
     <MESSAGE value="added some todo statements and a method to get all field names from a given object" />
     <MESSAGE value="Added a ListView for testing, tried to add a context menu to the list view but it duplicates each time" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a ListView for testing, tried to add a context menu to the list view but it duplicates each time" />
+    <MESSAGE value="Added a ListView for testing, added a context menu to the list view" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added a ListView for testing, added a context menu to the list view" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
