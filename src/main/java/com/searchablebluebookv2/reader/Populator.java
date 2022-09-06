@@ -61,44 +61,32 @@ public class Populator {
      * @return
      */
     public List<Field> getFields(Section section) {
+        //list to hodl the fields
         List<Field> fields = new ArrayList<>();
 
+        //get the Class name of the object
         String typeName = section.getClass().getName();
+        //class names are separated from their superclasses by '.'
         List<String> tp = Arrays.asList(typeName.split("\\."));
+        //get just the class name, not the full package
         typeName = tp.get(tp.size() -1);
 
         System.out.println("TypeName: " +typeName);
 
         //TODO: change this method so it can go inside of the nested objects and get their field names too.
 
-        //Test against the objects class name
+        //Test against the object's Class name
         switch (typeName) {
             case "UniversalBeam" -> {
-
-                //cast to Universal Beam
-                UniversalBeam ub = (UniversalBeam) section;
-                //get all field names and add them to the list of fields
-                fields = Arrays.asList(ub.getClass().getFields());
-
-
-                /*
-                if (fields.isEmpty()) {
-                    System.out.println("Fields Empty");
-                }
-                for (Field f : fields) {
-
-                    System.out.println("Next Field :");
-
-                    if (f.getName().isBlank()) {
-                        System.out.println("Blank Name");
-                    } else {
-                        System.out.println("read : " + f.getName());
-                    }
-                } */
+                    //cast to Universal Beam
+                    UniversalBeam ub = (UniversalBeam) section;
+                    //get all fields and add set the list of fields this method will return
+                    fields = Arrays.asList(ub.getClass().getFields());
             }
+
             //TODO: add more statements for each object type
 
-            case "Universal Columns (UC)" -> {
+            case "UniversalColumns" -> {
 
             }
         }
@@ -143,6 +131,7 @@ public class Populator {
             //Dimensions are stored within an object
             List<String> dimens = line.subList(2, 17);
             newBeam.dimensions = new Dimensions(dimens);
+
             //Properties are stored within an object
             List<String> props = line.subList(17, 30);
             newBeam.properties = new Properties(props);

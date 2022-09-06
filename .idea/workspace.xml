@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c85184a0-4536-40f2-a59e-42c20c8323da" name="Changes" comment="Added a ListView for testing, added a context menu to the list view">
+    <list default="true" id="c85184a0-4536-40f2-a59e-42c20c8323da" name="Changes" comment="Figured out why I could not get the names of fields from an object, next get all nested object fields and display in a ListView (maybe a TreeView would be better).">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/MainApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/reader/Populator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/reader/Populator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/sections/UniversalBeam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/sections/UniversalBeam.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/searchablebluebookv2/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/searchablebluebookv2/main-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,7 +162,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662316059050</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Figured out why I could not get the names of fields from an object, next get all nested object fields and display in a ListView (maybe a TreeView would be better).">
+      <created>1662387645016</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1662387645016</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -214,7 +220,8 @@
     <MESSAGE value="added some todo statements and a method to get all field names from a given object" />
     <MESSAGE value="Added a ListView for testing, tried to add a context menu to the list view but it duplicates each time" />
     <MESSAGE value="Added a ListView for testing, added a context menu to the list view" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a ListView for testing, added a context menu to the list view" />
+    <MESSAGE value="Figured out why I could not get the names of fields from an object, next get all nested object fields and display in a ListView (maybe a TreeView would be better)." />
+    <option name="LAST_COMMIT_MESSAGE" value="Figured out why I could not get the names of fields from an object, next get all nested object fields and display in a ListView (maybe a TreeView would be better)." />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

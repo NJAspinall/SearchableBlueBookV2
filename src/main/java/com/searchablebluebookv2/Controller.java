@@ -1,23 +1,15 @@
 package com.searchablebluebookv2;
 
-import com.searchablebluebookv2.models.Dimensions;
-import com.searchablebluebookv2.models.Properties;
 import com.searchablebluebookv2.reader.Populator;
-import com.searchablebluebookv2.reader.ReaderFactory;
 import com.searchablebluebookv2.reader.SteelReader;
-import com.searchablebluebookv2.reader.UBReader;
-import com.searchablebluebookv2.sections.OpenRolledSection;
 import com.searchablebluebookv2.sections.Section;
 import com.searchablebluebookv2.sections.UniversalBeam;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.input.ContextMenuEvent;
 import javafx.scene.layout.HBox;
 
 import java.lang.reflect.Field;
@@ -36,15 +28,7 @@ public class Controller {
      * FXML Control Elements
      */
     @FXML
-    public Label massPerMetre;
-    @FXML
-    public TableColumn<Section, String> Property;
-    @FXML
-    public TableColumn<Section, String> Value;
-    @FXML
     public HBox resultsBox;
-    @FXML
-    public ListView<String> listView = new ListView<>();
 
 
 
@@ -57,6 +41,7 @@ public class Controller {
     public ComboBox<String> preDesSelect;
     @FXML
     public ComboBox<String> subDesSelect;
+    public TreeView<String> treeView;
 
 
     /*
@@ -69,6 +54,7 @@ public class Controller {
      * User Entered Data Fields
      */
     String selectedPreDes;
+    String selectedSubDes;
 
 
     /*
@@ -105,10 +91,13 @@ public class Controller {
             refreshListView();
         });
 
-        ContextMenu listViewContextMenu = new ContextMenu();
+        ContextMenu viewContextMenu = new ContextMenu();
 
-        listViewContextMenu.getItems().add(menuItem);
-        listView.setContextMenu(listViewContextMenu);
+        viewContextMenu.getItems().add(menuItem);
+
+        if(treeView != null) {
+            treeView.setContextMenu(viewContextMenu);
+        }
     }
 
 
@@ -116,7 +105,7 @@ public class Controller {
 
 
     public void refreshListView() {
-        listView.refresh();
+        treeView.refresh();
     }
 
 
@@ -242,26 +231,72 @@ public class Controller {
 
             if(s.getPreDesignation().equals(selectedPreDes)) {
                 if (s.getSubDesignation().equals(subDes)) {
-                    System.out.println("success");
+                    //System.out.println("success");
                     ub = (UniversalBeam) s;
                 }
             }
         }
 
-        massPerMetre.setText(ub.dimensions.areaPerMetre);
 
-        //TODO: fields is empty
+        //get List of fields from the chosen object
         List<Field> fields = populator.getFields(ub);
 
-        ObservableList<String> observableNames = FXCollections.observableArrayList();
+        //get List of fields (objects) from the chosen object
+        List<Object> objects = new ArrayList<>();
+
         for(Field f : fields) {
-            observableNames.add("name : " + f.getName());
+            //get the field (f) from the specified object (anonObject)
+            // e.g f.get(anonObject);
+            try {
+                //the fields (f) in this case are nested objects containing more fields
+                objects.add(f.get(ub));
+            } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+            }
         }
 
-        //listView.setItems(observableNames);
-        listView.getItems().addAll(observableNames);
-        listView.refresh();
-        System.out.println("List View Updated");
+
+
+
+
+
+
+
+
+        TreeItem<String> rootItem = new TreeItem<>(ub.getPreDesignation() + ub.getSubDesignation());
+
+        for(Object o : objects) {
+            System.out.println("Next Object Found : ");
+
+
+            String tempName = o.getClass().getName();
+
+
+            //get object
+            TreeItem<String> heading = new TreeItem<>(o.getClass().getSimpleName());
+
+            //get fields
+            Field[] nestedFields = o.getClass().getFields();
+
+
+            //add fields to tree view element
+            for(Field f : nestedFields) {
+                try {
+                    heading.getChildren().add(new TreeItem<>(f.getName() +" : "+ f.get(o)));
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            rootItem.getChildren().add(heading);
+            treeView.setRoot(rootItem);
+        }
+
+    }
+
+
+
+    public void populateTreeView() {
 
     }
 
