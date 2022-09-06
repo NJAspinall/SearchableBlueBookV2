@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox id="rootContainer" alignment="CENTER" prefHeight="486.0" prefWidth="774.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.searchablebluebookv2.Controller">
+<VBox id="rootContainer" alignment="CENTER" prefHeight="449.0" prefWidth="774.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.searchablebluebookv2.Controller">
 
 
     <stylesheets>
@@ -41,19 +41,19 @@
     </MenuBar>
 
 
-   <AnchorPane prefHeight="200.0" prefWidth="200.0">
+   <AnchorPane prefHeight="441.0" prefWidth="774.0">
        <children>
       
            <!-- Controls -->
-           <VBox layoutY="-7.0" prefHeight="501.0" prefWidth="760.0" spacing="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+           <VBox layoutY="-7.0" prefHeight="495.0" prefWidth="774.0" spacing="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                <padding>
                    <Insets bottom="10.0" left="10.0" right="10.0" top="0.0" />
                </padding>
 
-               <HBox id="searchBox" fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="52.0" prefWidth="740.0" spacing="10.0">
+               <HBox id="searchBox" fillHeight="false" maxHeight="58.0" minHeight="58.0" prefHeight="58.0" prefWidth="754.0" spacing="10.0">
 
                    <!-- Drop down to select OpenRolledSection type -->
-                   <ComboBox fx:id="shapeSelect" layoutX="15.0" layoutY="33.0" onAction="#onShapeSelect" promptText="Shape" styleClass="dropDownOne">
+                   <ComboBox id="dropDownOne" fx:id="shapeSelect" layoutX="15.0" layoutY="33.0" onAction="#onShapeSelect" promptText="Shape" styleClass="dropDown">
                        <items>
                            <FXCollections fx:factory="observableArrayList">
                               <String fx:value="Universal Beams (UB)" />
@@ -71,18 +71,21 @@
                   </ComboBox>
       
                   <!-- Dropdown to select preDesignation -->
-                  <ComboBox fx:id="preDesSelect" disable="true" onAction="#onPreDesSelect" styleClass="dropDownTwo">
+                  <ComboBox id="dropDownTwo" fx:id="preDesSelect" disable="true" onAction="#onPreDesSelect" styleClass="dropDown">
 
                   </ComboBox>
       
                   <!-- Dropdown to select subDesignation -->
-                  <ComboBox fx:id="subDesSelect" disable="true" onAction="#onSubDesSelect" styleClass="dropDownTwo">
+                  <ComboBox id="dropDownTwo" fx:id="subDesSelect" disable="true" onAction="#onSubDesSelect" styleClass="dropDown">
 
                   </ComboBox>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
                </HBox>
-            <SplitPane dividerPositions="0.4029255319148936" prefHeight="388.0" prefWidth="754.0">
+            <SplitPane dividerPositions="0.4029255319148936" prefHeight="420.0" prefWidth="754.0">
               <items>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" styleClass="dataPane">
                      <children>
                         <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                            <children>
@@ -96,9 +99,9 @@
                         </VBox>
                      </children>
                   </AnchorPane>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" styleClass="dataPane">
                      <children>
-                        <TreeView fx:id="treeView" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                        <TreeView id="treeView" fx:id="treeView" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
                      </children>
                   </AnchorPane>
               </items>

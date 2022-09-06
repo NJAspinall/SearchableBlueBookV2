@@ -4,11 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c85184a0-4536-40f2-a59e-42c20c8323da" name="Changes" comment="Figured out why I could not get the names of fields from an object, next get all nested object fields and display in a ListView (maybe a TreeView would be better).">
+    <list default="true" id="c85184a0-4536-40f2-a59e-42c20c8323da" name="Changes" comment="Data is now displayed as a TreeView, getting the fields from the nested objects and their values">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/csv-plugin.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/models/Dimensions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/models/Dimensions.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/reader/Populator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/reader/Populator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/searchablebluebookv2/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/searchablebluebookv2/main-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/searchablebluebookv2/stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/searchablebluebookv2/stylesheet.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +53,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "Errors"
+    "settings.editor.selected.configurable": "RainbowCSV.Settings"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -169,7 +173,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662387645016</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Data is now displayed as a TreeView, getting the fields from the nested objects and their values">
+      <created>1662474891604</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1662474891604</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -221,7 +232,8 @@
     <MESSAGE value="Added a ListView for testing, tried to add a context menu to the list view but it duplicates each time" />
     <MESSAGE value="Added a ListView for testing, added a context menu to the list view" />
     <MESSAGE value="Figured out why I could not get the names of fields from an object, next get all nested object fields and display in a ListView (maybe a TreeView would be better)." />
-    <option name="LAST_COMMIT_MESSAGE" value="Figured out why I could not get the names of fields from an object, next get all nested object fields and display in a ListView (maybe a TreeView would be better)." />
+    <MESSAGE value="Data is now displayed as a TreeView, getting the fields from the nested objects and their values" />
+    <option name="LAST_COMMIT_MESSAGE" value="Data is now displayed as a TreeView, getting the fields from the nested objects and their values" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

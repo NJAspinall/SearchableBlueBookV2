@@ -11,8 +11,8 @@ public class Dimensions {
     public String widthOfSection;
 
     //Thickness
-    public String web;
-    public String flange;
+    public String webThickness;
+    public String flangeThickness;
 
     public String rootRadius;
 
@@ -28,8 +28,8 @@ public class Dimensions {
     public String nNotch;
 
     //Surface Area
-    public String areaPerMetre;
-    public String areaPerTonne;
+    public String surfaceAreaPerMetre;
+    public String surfaceAreaPerTonne;
 
 
     /***
@@ -39,26 +39,28 @@ public class Dimensions {
      */
     public Dimensions(List<String> dimensions) {
 
-        this.massPerMetre = dimensions.get(0);
+        this.massPerMetre = dimensions.get(1);
 
-        this.depthOfSection = dimensions.get(1);
+        this.widthOfSection = dimensions.get(2);
 
-        this.web = dimensions.get(2);
-        this.flange = dimensions.get(3);
+        this.depthOfSection = dimensions.get(3);
 
-        this.rootRadius = dimensions.get(4);
+        this.webThickness = dimensions.get(4);
+        this.flangeThickness = dimensions.get(5);
 
-        this.depthBetweenFillets = dimensions.get(5);
+        this.rootRadius = dimensions.get(6);
 
-        this.ratioWeb = dimensions.get(6);
-        this.ratioFlange = dimensions.get(7);
+        this.depthBetweenFillets = dimensions.get(7);
 
-        this.endClearance = dimensions.get(8);
-        this.NNotch = dimensions.get(9);
-        this.nNotch = dimensions.get(10);
+        this.ratioWeb = dimensions.get(8);
+        this.ratioFlange = dimensions.get(9);
 
-        this.areaPerMetre = dimensions.get(11);
-        this.areaPerTonne = dimensions.get(12);
+        this.endClearance = dimensions.get(10);
+        this.NNotch = dimensions.get(11);
+        this.nNotch = dimensions.get(12);
+
+        this.surfaceAreaPerMetre = dimensions.get(13);
+        this.surfaceAreaPerTonne = dimensions.get(14);
 
     }
 

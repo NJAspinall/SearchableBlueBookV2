@@ -130,10 +130,25 @@ public class Populator {
 
             //Dimensions are stored within an object
             List<String> dimens = line.subList(2, 17);
+
+            System.out.println("Dimensions");
+            int x = 0;
+            for(String s : dimens) {
+                x++;
+                System.out.println(x +". "+s);
+            }
+
             newBeam.dimensions = new Dimensions(dimens);
 
             //Properties are stored within an object
             List<String> props = line.subList(17, 30);
+
+            System.out.println("Properties");
+            int i = 0;
+            for(String s : props) {
+                i++;
+                System.out.println(i +". "+s);
+            }
             newBeam.properties = new Properties(props);
 
             ubList.add(newBeam);

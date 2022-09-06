@@ -9,6 +9,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.geometry.Orientation;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 
@@ -101,9 +102,9 @@ public class Controller {
     }
 
 
-
-
-
+    /***
+     * Used in a ContextMenu to refresh the TreeView
+     */
     public void refreshListView() {
         treeView.refresh();
     }
@@ -283,6 +284,7 @@ public class Controller {
             for(Field f : nestedFields) {
                 try {
                     heading.getChildren().add(new TreeItem<>(f.getName() +" : "+ f.get(o)));
+                    heading.setGraphic(new Separator(Orientation.HORIZONTAL));
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
                 }
