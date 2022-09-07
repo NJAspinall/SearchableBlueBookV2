@@ -54,14 +54,13 @@ public class Populator {
 
 
     /***
-     * TODO: Test this method, may need to cast to UB via switch statement. <br><br>
-     * Takes the given Steel object and returns a list of the names
-     * of all the fields within. <br>
+     * Takes the given Steel object and returns a list of all the fields within. <br>
      * @param section
-     * @return
+     * @return List<Field>
      */
     public List<Field> getFields(Section section) {
-        //list to hodl the fields
+        //list to hold the fields
+        //TODO: Return 2D array containing fields, and objects with more fields so less logic is in the controller.
         List<Field> fields = new ArrayList<>();
 
         //get the Class name of the object

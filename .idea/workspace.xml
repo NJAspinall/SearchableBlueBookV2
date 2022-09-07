@@ -4,15 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c85184a0-4536-40f2-a59e-42c20c8323da" name="Changes" comment="Data is now displayed as a TreeView, getting the fields from the nested objects and their values">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/csv-plugin.xml" afterDir="false" />
+    <list default="true" id="c85184a0-4536-40f2-a59e-42c20c8323da" name="Changes" comment="Data in TreeView is now correct and the colour scheme of the application has been changed.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/Log.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/data/universalBeams/UB-secpropsdetailingfire.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/models/Dimensions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/models/Dimensions.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/reader/Populator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/reader/Populator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/searchablebluebookv2/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/searchablebluebookv2/main-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/searchablebluebookv2/stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/searchablebluebookv2/stylesheet.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,7 +177,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662474891604</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Data in TreeView is now correct and the colour scheme of the application has been changed.">
+      <created>1662489799279</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1662489799279</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -233,7 +237,8 @@
     <MESSAGE value="Added a ListView for testing, added a context menu to the list view" />
     <MESSAGE value="Figured out why I could not get the names of fields from an object, next get all nested object fields and display in a ListView (maybe a TreeView would be better)." />
     <MESSAGE value="Data is now displayed as a TreeView, getting the fields from the nested objects and their values" />
-    <option name="LAST_COMMIT_MESSAGE" value="Data is now displayed as a TreeView, getting the fields from the nested objects and their values" />
+    <MESSAGE value="Data in TreeView is now correct and the colour scheme of the application has been changed." />
+    <option name="LAST_COMMIT_MESSAGE" value="Data in TreeView is now correct and the colour scheme of the application has been changed." />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

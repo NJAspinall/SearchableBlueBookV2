@@ -25,6 +25,8 @@ import java.util.List;
  */
 public class Controller {
 
+    //TODO: Create Log Control to hold all print statements within the UI
+
     /*
      * FXML Control Elements
      */
@@ -226,6 +228,7 @@ public class Controller {
      * @param subDes
      */
     public void populateResults(String subDes) {
+        //TODO: Update this method to work with anonymous objects, not just UniversalBeam
         UniversalBeam ub = new UniversalBeam("test", "test");
 
         for(Section s : sections) {
