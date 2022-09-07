@@ -44,12 +44,11 @@ public class Controller {
     public ComboBox<String> preDesSelect;
     @FXML
     public ComboBox<String> subDesSelect;
+    @FXML
     public TreeView<String> treeView;
+    @FXML
+    public ListView<String> logView;
 
-
-    /*
-     * FXML ContextMenu Elements
-     */
 
 
 
@@ -74,6 +73,8 @@ public class Controller {
 
     Populator populator;
 
+    Log log = new Log(this);
+
 
 
     /***
@@ -82,6 +83,32 @@ public class Controller {
     public void quitApplication() {
         Platform.exit();
     }
+
+
+
+
+
+
+
+    /***
+     * Set the ObservableList for the logView so it will be updated as new
+     * statements are added.
+     */
+    public void createLog() {
+        if(logView != null) {
+            logView.setItems(log.getLog());
+        }
+    }
+
+
+    public void updateLog(String line) {
+        logView.getItems().add(line);
+    }
+
+
+
+
+
 
 
     /***
@@ -104,6 +131,8 @@ public class Controller {
     }
 
 
+
+
     /***
      * Used in a ContextMenu to refresh the TreeView
      */
@@ -112,15 +141,21 @@ public class Controller {
     }
 
 
+
+
+
+
+
     /***
      * Event Listener for the 'shapeSelect' combo-box, when the shape is selected it
-     * will call the 'populator' class to read the data into relevant objects.
+     * will call the 'populator' class to read the data into relevant objects. <br>
+     *
      * @param actionEvent
      */
     @FXML
     protected void onShapeSelect(ActionEvent actionEvent) {
         String currentShape = shapeSelect.getValue();
-        System.out.println("SHAPE SELECTED : " +currentShape);
+        log.addLog("SHAPE SELECTED : " +currentShape);
 
         preDesSelect.setDisable(false);
 
@@ -174,8 +209,11 @@ public class Controller {
 
 
 
+
+
     /***
-     * populate 'subDesSelect' combo-box with matching pre-designations
+     * populate 'subDesSelect' combo-box with matching pre-designations. <br>
+     *
      * @param selectedPreDes the currently selected pre-designation measurement
      */
     public void populateSubDes(String selectedPreDes) {
@@ -187,8 +225,6 @@ public class Controller {
         //TODO : move this into the populator class
         //find objects with matching sub-designation and add them to combo-box selections
         for(Section s : sections) {
-            s.methodOverrideTest();
-
             if(s.getPreDesignation().equals(selectedPreDes)) {
                 subDesData.add(s.getSubDesignation());
                 subDesSelect.setItems(subDesData);
@@ -199,32 +235,67 @@ public class Controller {
 
 
 
+
+
+
     /***
      * Event Listener for 'preDesSelect' combo-box, captures the selected
-     * pre-designation
+     * pre-designation. <br>
+     *
      * @param actionEvent
      */
     @FXML
     public void onPreDesSelect(ActionEvent actionEvent) {
-       selectedPreDes = preDesSelect.getValue();
-       populateSubDes(selectedPreDes);
-       subDesSelect.setDisable(false);
+
+        //if preDes is changed after a full selection has been made
+        if((selectedSubDes != null) && (!selectedSubDes.isBlank())) {
+            selectedSubDes = "";
+        }
+        else {
+            clearResults();
+        }
+
+
+        selectedPreDes = preDesSelect.getValue();
+        populateSubDes(selectedPreDes);
+        subDesSelect.setDisable(false);
     }
+
+
+
+
+
 
 
     /***
      * Event Listener for 'subDesSelect' combo-box, captures the selected
-     * sub-designation
+     * sub-designation. <br>
+     *
      * @param actionEvent
      */
     @FXML
     public void onSubDesSelect(ActionEvent actionEvent) {
-        populateResults(subDesSelect.getValue());
+        //TODO: if preDes is changed error occurs, prevent this.
+        selectedSubDes = subDesSelect.getValue();
+        log.addLog("Designation : " +selectedPreDes +selectedSubDes+ " selected.");
+
+        if((selectedSubDes != null) && (!selectedSubDes.isBlank())) {
+            populateResults(selectedSubDes);
+        }
+        else {
+            clearResults();
+        }
     }
 
 
+
+
+
+
+
     /***
-     * Test method to display one of the fields of the nested 'Dimensions' object
+     * Test method to display one of the fields of the nested 'Dimensions' object. <br>
+     *
      * @param subDes
      */
     public void populateResults(String subDes) {
@@ -259,29 +330,17 @@ public class Controller {
             }
         }
 
-
-
-
-
-
-
-
-
+        //The Root item for the tree
         TreeItem<String> rootItem = new TreeItem<>(ub.getPreDesignation() + ub.getSubDesignation());
 
+        //Recursively add each object and its fields
         for(Object o : objects) {
-            System.out.println("Next Object Found : ");
 
-
-            String tempName = o.getClass().getName();
-
-
-            //get object
+            //get object class name
             TreeItem<String> heading = new TreeItem<>(o.getClass().getSimpleName());
 
             //get fields
             Field[] nestedFields = o.getClass().getFields();
-
 
             //add fields to tree view element
             for(Field f : nestedFields) {
@@ -289,10 +348,11 @@ public class Controller {
                     heading.getChildren().add(new TreeItem<>(f.getName() +" : "+ f.get(o)));
                     heading.setGraphic(new Separator(Orientation.HORIZONTAL));
                 } catch (IllegalAccessException e) {
-                    e.printStackTrace();
+                    log.addStackTrace(e);
                 }
             }
 
+            //finalise the TreeView to be displayed
             rootItem.getChildren().add(heading);
             treeView.setRoot(rootItem);
         }
@@ -301,8 +361,23 @@ public class Controller {
 
 
 
-    public void populateTreeView() {
 
+
+
+
+    public void clearResults() {
+        treeView.setRoot(null);
+    }
+
+
+
+
+
+    /***
+     * Update the log with a new Statement
+     */
+    public void populateLog() {
+        logView.getItems().add(log.getLastLog());
     }
 
 }

@@ -20,6 +20,8 @@ public class UBReader extends SteelReader {
     //Dimensions & Properties table (csv file)
     public static String DIMPROPS = "src/main/java/com/searchablebluebookv2/data/universalBeams/UB-secpropsdimsprops.csv";
 
+    public static String FIREDETIALS = "src/main/java/com/searchablebluebookv2/data/universalBeams/UB-secpropsdetailingfire.csv";
+
 
     /***
      * Constructor
@@ -79,6 +81,11 @@ public class UBReader extends SteelReader {
 
     //method to read detailing and fire parameters
 
+
+    //TODO: How would I link this information with the info from the other method?
+    public void readFireandDetailing() {
+
+    }
 
     //method to read effective section properties
 

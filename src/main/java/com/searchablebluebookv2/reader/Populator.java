@@ -64,13 +64,7 @@ public class Populator {
         List<Field> fields = new ArrayList<>();
 
         //get the Class name of the object
-        String typeName = section.getClass().getName();
-        //class names are separated from their superclasses by '.'
-        List<String> tp = Arrays.asList(typeName.split("\\."));
-        //get just the class name, not the full package
-        typeName = tp.get(tp.size() -1);
-
-        System.out.println("TypeName: " +typeName);
+        String typeName = section.getClass().getSimpleName();
 
         //TODO: change this method so it can go inside of the nested objects and get their field names too.
 
@@ -106,6 +100,7 @@ public class Populator {
         reader = rFactory.createReader("Universal Beams (UB)");
         List<List<String>> sections = reader.readDimensionsAndProperties();
 
+        //
         ubList = new ArrayList<>();
 
         preDesList = new ArrayList<>();
@@ -117,6 +112,9 @@ public class Populator {
         for(List<String> line : sections) {
             //Create a new UniversalBeam object and set the Designations
 
+            /* in the csv file only the first row of each preDesignation will actually
+            hold the preDesignation value, so it needs to be assigned to the following
+            valid rows (until the next PreDesignation is met)*/
             if(!line.get(0).isBlank() || !line.get(0).equals("")) {
                 preDes = line.get(0);
                 preDesList.add(preDes);
@@ -125,29 +123,19 @@ public class Populator {
             //Instantiate Steel object
             UniversalBeam newBeam = new UniversalBeam(preDes, line.get(1));
 
+
             /* Store basic Section Properties */
 
-            //Dimensions are stored within an object
+            //All cells under 'Dimensions' SubHeading are taken from the file
             List<String> dimens = line.subList(2, 17);
 
-            System.out.println("Dimensions");
-            int x = 0;
-            for(String s : dimens) {
-                x++;
-                System.out.println(x +". "+s);
-            }
-
+            //Dimensions are stored within an object
             newBeam.dimensions = new Dimensions(dimens);
 
-            //Properties are stored within an object
+            //All cells under 'Properties' SubHeading are taken from the file
             List<String> props = line.subList(17, 30);
 
-            System.out.println("Properties");
-            int i = 0;
-            for(String s : props) {
-                i++;
-                System.out.println(i +". "+s);
-            }
+            //Properties are stored within an object
             newBeam.properties = new Properties(props);
 
             ubList.add(newBeam);
@@ -155,6 +143,7 @@ public class Populator {
 
 
         /*Display for testing */
+        /*
         int i = 0;
         for(UniversalBeam beam : ubList) {
             i++;
@@ -162,6 +151,7 @@ public class Populator {
             System.out.println(beam.getPreDesignation());
             System.out.println(beam.getSubDesignation());
         }
+        */
     }
 
 
@@ -176,10 +166,10 @@ public class Populator {
     }
 
 
-
-
-
-
+    /***
+     * Get the list of SubDesignations
+     * @return
+     */
     public List<String> getSubDesignations() {
 
         return new ArrayList<String>();

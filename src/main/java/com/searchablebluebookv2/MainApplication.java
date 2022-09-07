@@ -30,10 +30,13 @@ public class MainApplication extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 820, 540);
         stage.setTitle("Searchable Blue Book");
         stage.setScene(scene);
-        stage.show();
+
 
         Controller controller = new Controller();
         controller.setContextMenu();
+        controller.createLog();
+
+        stage.show();
     }
 
     public static void main(String[] args) {

@@ -9,6 +9,10 @@ public class Section {
     protected String subDes;
 
 
+
+
+
+
     /***
      * Constructor
      * @param preDes
@@ -21,27 +25,26 @@ public class Section {
 
 
 
+
+
+
+
     public String getPreDesignation() {
         return preDes;
     }
+
+
+
+
+
+
 
     public String getSubDesignation() {
         return subDes;
     }
 
 
-    public List<List<String>> toList() {
-        List<List<String>> data = new ArrayList<List<String>>();
 
-        return data;
-    }
-
-
-
-    public String methodOverrideTest() {
-
-        return "Superclass";
-    }
 
 
 
