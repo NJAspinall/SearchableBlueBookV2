@@ -1,6 +1,8 @@
 package com.searchablebluebookv2.reader;
 
+import com.searchablebluebookv2.Log;
 import com.searchablebluebookv2.models.Dimensions;
+import com.searchablebluebookv2.models.FireParameters;
 import com.searchablebluebookv2.models.Properties;
 import com.searchablebluebookv2.sections.Section;
 import com.searchablebluebookv2.sections.UniversalBeam;
@@ -30,12 +32,16 @@ public class Populator {
 
     List<UniversalBeam> ubList;
 
+    Log log;
+
 
     /***
      * Constructor
      */
-    public Populator() {
+    public Populator(Log log) {
         this.rFactory = new ReaderFactory();
+
+        this.log = log;
     }
 
 
@@ -97,14 +103,13 @@ public class Populator {
      * Also populates the list of pre-designations.
      */
     public void populateUniversalBeams() {
-        reader = rFactory.createReader("Universal Beams (UB)");
+        reader = rFactory.createReader("Universal Beams (UB)", log);
         List<List<String>> sections = reader.readDimensionsAndProperties();
 
-        //
+        //list to hold read universal beams objects
         ubList = new ArrayList<>();
-
+        //list of read pre-designation values to be returned to the Controller
         preDesList = new ArrayList<>();
-
 
         String preDes = "";
 
@@ -142,6 +147,46 @@ public class Populator {
         }
 
 
+        /* Fire and Detailing Information */
+
+        List<List<String>> fireParams = reader.readFireAndDetailing();
+
+
+        int i = 0;
+        //get sublist for relevant fields
+        for(List<String> list : fireParams) {
+
+
+            if(ubList.get(i).getPreDesignation().equals(list.get(0))) {
+                if(ubList.get(i).getSubDesignation().equals(list.get(1))) {
+
+                    System.out.println("Found Designation " + ubList.get(i).getPreDesignation() + ubList.get(i).getSubDesignation());
+                    log.addLog("Found Designation " + ubList.get(i).getPreDesignation() + ubList.get(i).getSubDesignation());
+
+
+                    //get all cells from the table that are not in the previous table
+                    List<String> data = list.subList(8, 12);
+
+                    for(String s : data) {
+                        System.out.println("current data" +s);
+                        log.addLog(s);
+                    }
+
+                    //Fire Parameters are stored within an object in the Beam class
+                    ubList.get(i).setFireParameters(new FireParameters(data));
+
+
+                    System.out.println("Current Box 3 Sides : " +ubList.get(i).getFireParameters().box3Sides);
+                }
+            }
+
+
+        }
+
+
+
+
+
         /*Display for testing */
         /*
         int i = 0;
@@ -152,7 +197,35 @@ public class Populator {
             System.out.println(beam.getSubDesignation());
         }
         */
+
+
+
+
     }
+
+
+
+
+
+    public void assignNestedObjects(Object object) {
+        String objectName = object.getClass().getSimpleName();
+
+        switch(objectName) {
+            case "Dimensions" -> {
+
+            }
+
+            case "Properties" -> {
+
+            }
+
+            case "FireParameters" -> {
+
+            }
+        }
+    }
+
+
 
 
 

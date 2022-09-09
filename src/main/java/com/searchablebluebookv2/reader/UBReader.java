@@ -1,5 +1,7 @@
 package com.searchablebluebookv2.reader;
 
+import com.searchablebluebookv2.Controller;
+import com.searchablebluebookv2.Log;
 import com.searchablebluebookv2.models.Dimensions;
 import com.searchablebluebookv2.models.Properties;
 import com.searchablebluebookv2.sections.Section;
@@ -17,17 +19,23 @@ import java.util.*;
  */
 public class UBReader extends SteelReader {
 
+    Log log;
+
+
     //Dimensions & Properties table (csv file)
     public static String DIMPROPS = "src/main/java/com/searchablebluebookv2/data/universalBeams/UB-secpropsdimsprops.csv";
 
-    public static String FIREDETIALS = "src/main/java/com/searchablebluebookv2/data/universalBeams/UB-secpropsdetailingfire.csv";
+    //Fire Parameters and Detailing table (csv file)
+    public static String FIREDETAILS = "src/main/java/com/searchablebluebookv2/data/universalBeams/UB-secpropsdetailingfire.csv";
 
+
+    //TODO: Read diagram images to be displayed in the UI
 
     /***
      * Constructor
      */
-    public UBReader() {
-
+    public UBReader(Log log) {
+        this.log = log;
     }
 
 
@@ -37,7 +45,7 @@ public class UBReader extends SteelReader {
     /***
      * Method to read the dimensions and properties of UniversalBeams line by line into
      * a 2D array.
-     * @return
+     * @return 2D List of rows of data
      */
     public List<List<String>> readDimensionsAndProperties() {
 
@@ -56,7 +64,7 @@ public class UBReader extends SteelReader {
                 /* ignore first 9 lines which is just supplementary
                 information about the source of the data */
                 if((count >= 10) && (count <= 117)) {
-                    List<String> line = new LinkedList<String>(Arrays.asList(data.split(",")));
+                    List<String> line = new LinkedList<>(Arrays.asList(data.split(",")));
 
                     if(line.size() >= 5) { //do not read empty lines or lines containing notes and comments
                         sections.add(line);
@@ -68,23 +76,57 @@ public class UBReader extends SteelReader {
             myReader.close();
 
         } catch (FileNotFoundException e) {
-            System.out.println("The Universal Beams file could not be found.");
-            e.printStackTrace();
+            log.addLog("The 'Dimensions and Properties' file could not be found.");
+            log.addStackTrace(e);
         } catch (Exception e) {
-            System.out.println("Unknown Error!");
-            e.printStackTrace();
+            log.addLog("Unknown Error! Please restart the application.");
+            log.addStackTrace(e);
         }
 
         //return list of UniversalBeam objects
         return sections;
     }
 
-    //method to read detailing and fire parameters
 
+    /***
+     * Method to return the information from the Fire Parameters file
+     *
+     * @return 2D List of rows of data
+     */
+    public List<List<String>> readFireAndDetailing() {
 
-    //TODO: How would I link this information with the info from the other method?
-    public void readFireandDetailing() {
+        List<List<String>> sections = new ArrayList<>();
 
+        int count = 0;
+
+        try {
+            File file = new File(FIREDETAILS);
+            Scanner reader = new Scanner(file);
+
+            while (reader.hasNextLine()) {
+                String data = reader.nextLine().trim();
+
+                 /* ignore first 9 lines which is just supplementary
+                information about the source of the data */
+                if((count >= 9) && (count <= 117)) {
+                    List<String> line = new LinkedList<>(Arrays.asList(data.split(",")));
+
+                    if(line.size() >= 5) { //do not read empty lines or lines containing notes and comments
+                        sections.add(line);
+                    }
+                }
+                count++;
+            }
+        }
+        catch (FileNotFoundException e) {
+            log.addLog("The 'Fire Detailing' file could not be found.");
+            log.addStackTrace(e);
+        } catch(Exception e) {
+            log.addLog("Unknown Error! Please restart the application.");
+            log.addStackTrace(e);
+        }
+
+        return sections;
     }
 
     //method to read effective section properties

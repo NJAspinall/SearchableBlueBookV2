@@ -10,4 +10,6 @@ public abstract class SteelReader {
 
     public abstract List<List<String>> readDimensionsAndProperties();
 
+    public abstract List<List<String>> readFireAndDetailing();
+
 }

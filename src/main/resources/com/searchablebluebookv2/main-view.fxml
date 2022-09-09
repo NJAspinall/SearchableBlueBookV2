@@ -99,7 +99,7 @@
                                    </children>
                                </VBox>
 
-                               <ListView fx:id="logView" layoutX="10.0" layoutY="243.0" prefHeight="165.0" prefWidth="280.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="243.0" />
+                               <ListView fx:id="logView" id="logView" style="-fx-font-size:14px" layoutX="10.0" layoutY="243.0" prefHeight="165.0" prefWidth="280.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="243.0" />
 
                            </children>
                        </AnchorPane>

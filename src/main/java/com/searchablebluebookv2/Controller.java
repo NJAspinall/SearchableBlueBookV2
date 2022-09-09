@@ -14,6 +14,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -159,7 +160,7 @@ public class Controller {
 
         preDesSelect.setDisable(false);
 
-        populator = new Populator();
+        populator = new Populator(log);
 
         switch (currentShape) {
             case "Universal Beams (UB)":
@@ -302,8 +303,8 @@ public class Controller {
         //TODO: Update this method to work with anonymous objects, not just UniversalBeam
         UniversalBeam ub = new UniversalBeam("test", "test");
 
+        //Find the object to get results from
         for(Section s : sections) {
-
             if(s.getPreDesignation().equals(selectedPreDes)) {
                 if (s.getSubDesignation().equals(subDes)) {
                     //System.out.println("success");
@@ -335,26 +336,32 @@ public class Controller {
 
         //Recursively add each object and its fields
         for(Object o : objects) {
+            try {
+                if(o != null) {
+                    //get object class name
+                    TreeItem<String> heading = new TreeItem<>(o.getClass().getSimpleName());
 
-            //get object class name
-            TreeItem<String> heading = new TreeItem<>(o.getClass().getSimpleName());
+                    //get fields
+                    Field[] nestedFields = o.getClass().getFields();
 
-            //get fields
-            Field[] nestedFields = o.getClass().getFields();
+                    //add fields to tree view element
+                    for (Field f : nestedFields) {
+                        try {
+                            heading.getChildren().add(new TreeItem<>(f.getName() + " : " + f.get(o)));
+                            heading.setGraphic(new Separator(Orientation.HORIZONTAL));
+                        } catch (IllegalAccessException e) {
+                            log.addStackTrace(e);
+                        }
+                    }
 
-            //add fields to tree view element
-            for(Field f : nestedFields) {
-                try {
-                    heading.getChildren().add(new TreeItem<>(f.getName() +" : "+ f.get(o)));
-                    heading.setGraphic(new Separator(Orientation.HORIZONTAL));
-                } catch (IllegalAccessException e) {
-                    log.addStackTrace(e);
+                    //finalise the TreeView to be displayed
+                    rootItem.getChildren().add(heading);
+                    treeView.setRoot(rootItem);
                 }
             }
-
-            //finalise the TreeView to be displayed
-            rootItem.getChildren().add(heading);
-            treeView.setRoot(rootItem);
+            catch(Exception e) {
+                log.addStackTrace(e);
+            }
         }
 
     }
