@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-/***
+/**
  * This Class will hold any error messages, debug statements and such so that it can be
  * viewed within the UI rather than the Console.
  */
@@ -21,6 +21,11 @@ public class Log {
     public Controller controller;
 
 
+    /**
+     * Constructor
+     *
+     * @param controller the instance of the Controller class
+     */
     public Log(Controller controller) {
         log = FXCollections.observableArrayList();
         this.controller = controller;

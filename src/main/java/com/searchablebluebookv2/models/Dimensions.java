@@ -2,6 +2,13 @@ package com.searchablebluebookv2.models;
 
 import java.util.List;
 
+
+/**
+ * This class holds the columns from the 'Dimensions' subheading of the Sections
+ * 'Properties and Dimensions' csv.
+ *
+ * @author Nathan Aspinall
+ */
 public class Dimensions {
 
     public String massPerMetre;
@@ -32,7 +39,7 @@ public class Dimensions {
     public String surfaceAreaPerTonne;
 
 
-    /***
+    /**
      * Constructor
      *
      * @param dimensions - List of all dimensions taken from the table for this row

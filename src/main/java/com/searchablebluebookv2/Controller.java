@@ -19,15 +19,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-/***
+/**
  * This class is the controller class for the main-view.fxml
  *
  * @author Nathan Aspinall
  */
 public class Controller {
-
-    //TODO: Create Log Control to hold all print statements within the UI
-
     /*
      * FXML Control Elements
      */
@@ -38,7 +35,7 @@ public class Controller {
 
     /*
      * UI ComboBox Elements
-     **/
+     */
     @FXML
     public ComboBox<String> shapeSelect;
     @FXML
@@ -66,6 +63,8 @@ public class Controller {
     //Holds the currently searched objects
     public List<Section> sections = new ArrayList<>();
 
+    public String currentShape;
+
 
     /*
      * Packaged Classes
@@ -78,7 +77,7 @@ public class Controller {
 
 
 
-    /***
+    /**
      * Method to allow the user to close the application.
      */
     public void quitApplication() {
@@ -91,8 +90,8 @@ public class Controller {
 
 
 
-    /***
-     * Set the ObservableList for the logView so it will be updated as new
+    /**
+     * Set the ObservableList for the logView, so it will be updated as new
      * statements are added.
      */
     public void createLog() {
@@ -112,7 +111,7 @@ public class Controller {
 
 
 
-    /***
+    /**
      * Creates and adds a context menu to the listView when requested
      */
     public void setContextMenu() {
@@ -123,7 +122,6 @@ public class Controller {
         });
 
         ContextMenu viewContextMenu = new ContextMenu();
-
         viewContextMenu.getItems().add(menuItem);
 
         if(treeView != null) {
@@ -134,7 +132,7 @@ public class Controller {
 
 
 
-    /***
+    /**
      * Used in a ContextMenu to refresh the TreeView
      */
     public void refreshListView() {
@@ -147,7 +145,7 @@ public class Controller {
 
 
 
-    /***
+    /**
      * Event Listener for the 'shapeSelect' combo-box, when the shape is selected it
      * will call the 'populator' class to read the data into relevant objects. <br>
      *
@@ -155,54 +153,72 @@ public class Controller {
      */
     @FXML
     protected void onShapeSelect(ActionEvent actionEvent) {
-        String currentShape = shapeSelect.getValue();
-        log.addLog("SHAPE SELECTED : " +currentShape);
 
-        preDesSelect.setDisable(false);
+        if( (currentShape != null) && (currentShape.equals(shapeSelect.getValue())) ) {
+            preDesSelect.setValue("");
+        }
 
-        populator = new Populator(log);
+        else {
+            //remove all current results and options from the dropdowns as they will need to be replaced
+            clearResults();
+            clearLists();
 
-        switch (currentShape) {
-            case "Universal Beams (UB)":
-                populator.populateUniversalBeams();
+            //get the current shape selection
+            currentShape = shapeSelect.getValue();
+            log.addLog("SHAPE SELECTED : " +currentShape);
 
-                ObservableList<String> preDesData = FXCollections.observableArrayList(populator.getPreDesList());
-                preDesSelect.setItems(preDesData);
+            //enable the next dropdown for the user to select the Pre-Designation from
+            preDesSelect.setDisable(false);
 
-                List<UniversalBeam> ubs = populator.getUniversalBeams();
-                sections.addAll(ubs);
-                break;
+            //initialise the Populator class and pass it the instance of the Log class
+            populator = new Populator(log);
+
+            //read the data for the shape that has been selected
+            switch (currentShape) {
+                case "Universal Beams (UB)":
+                    //read Universal Beams data into objects
+                    populator.populateUniversalBeams();
+
+                    //get the objects Pre-Designations to populate the dropdown
+                    ObservableList<String> preDesData = FXCollections.observableArrayList(populator.getPreDesList());
+                    preDesSelect.setItems(preDesData);
+
+                    //get the objects and add them to the list of current Sections the application will be dealing with
+                    List<UniversalBeam> ubs = populator.getUniversalBeams();
+                    sections.addAll(ubs);
+                    break;
 
 
-            //TODO: create relevant methods and reference inside 'if' statements
-            //TODO: Create new Reader classes to read the objects
-            case "Universal Columns (UC)":
+                //TODO: create relevant methods and reference inside 'if' statements
+                //TODO: Create new Reader classes to read the objects
+                case "Universal Columns (UC)":
 
-                break;
-            case "Universal Bearing Piles (UBP)":
+                    break;
+                case "Universal Bearing Piles (UBP)":
 
-                break;
-            case "Parallel Flange Channels (PFC)":
+                    break;
+                case "Parallel Flange Channels (PFC)":
 
-                break;
-            case "Equal Leg Angles (L)":
+                    break;
+                case "Equal Leg Angles (L)":
 
-                break;
-            case "Unequal Leg Angles (L)":
+                    break;
+                case "Unequal Leg Angles (L)":
 
-                break;
-            case "Back to back Equal Leg Angles (L)":
+                    break;
+                case "Back to back Equal Leg Angles (L)":
 
-                break;
-            case "Back to back Unequal Leg Angles (L)":
+                    break;
+                case "Back to back Unequal Leg Angles (L)":
 
-                break;
-            case "Tees (T) split from UB":
+                    break;
+                case "Tees (T) split from UB":
 
-                break;
-            case "Tees (T) split from UC":
+                    break;
+                case "Tees (T) split from UC":
 
-                break;
+                    break;
+            }
         }
     }
 
@@ -212,7 +228,7 @@ public class Controller {
 
 
 
-    /***
+    /**
      * populate 'subDesSelect' combo-box with matching pre-designations. <br>
      *
      * @param selectedPreDes the currently selected pre-designation measurement
@@ -239,7 +255,7 @@ public class Controller {
 
 
 
-    /***
+    /**
      * Event Listener for 'preDesSelect' combo-box, captures the selected
      * pre-designation. <br>
      *
@@ -268,7 +284,7 @@ public class Controller {
 
 
 
-    /***
+    /**
      * Event Listener for 'subDesSelect' combo-box, captures the selected
      * sub-designation. <br>
      *
@@ -294,7 +310,7 @@ public class Controller {
 
 
 
-    /***
+    /**
      * Test method to display one of the fields of the nested 'Dimensions' object. <br>
      *
      * @param subDes
@@ -372,19 +388,29 @@ public class Controller {
 
 
 
+
+    /**
+     * Clear the current selected Section info to be populated with another
+     */
     public void clearResults() {
         treeView.setRoot(null);
     }
 
 
-
-
-
-    /***
-     * Update the log with a new Statement
+    /**
+     * Clear all Combo-boxes so they can hold new values
      */
-    public void populateLog() {
-        logView.getItems().add(log.getLastLog());
+    public void clearLists() {
+        preDesSelect.getItems().clear();
+        subDesSelect.setDisable(true);
+        subDesSelect.getItems().clear();
     }
+
+
+
+
+
+
+
 
 }

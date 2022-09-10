@@ -5,6 +5,12 @@ import com.searchablebluebookv2.sections.Section;
 
 import java.util.List;
 
+
+/**
+ * This abstract Class will be used to subclass reader classes unique to each Steel Shape and its unique csv files
+ *
+ * @author Nathan Aspinall
+ */
 public abstract class SteelReader {
 
 

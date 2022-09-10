@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-/***
+/**
  * This class's purpose is to format data into required Steel Section objects and
  * return them to the Controller as needed.
  *
@@ -35,7 +35,7 @@ public class Populator {
     Log log;
 
 
-    /***
+    /**
      * Constructor
      */
     public Populator(Log log) {
@@ -47,7 +47,7 @@ public class Populator {
 
 
 
-    /***
+    /**
      * Returns a list of current preDesignations dependent on which steel shape
      * has been selected. <br><br> The list is populated as the objects are read, so it
      * will always contain the list of the most recently loaded objects.
@@ -59,10 +59,11 @@ public class Populator {
     }
 
 
-    /***
+    /**
      * Takes the given Steel object and returns a list of all the fields within. <br>
-     * @param section
-     * @return List<Field>
+     *
+     * @param section the current object to get the fields from
+     * @return A List of the objects fields
      */
     public List<Field> getFields(Section section) {
         //list to hold the fields
@@ -98,7 +99,7 @@ public class Populator {
 
 
 
-    /***
+    /**
      * Formats the returned data from the UniversalBeams file into usable UB objects.<br>
      * Also populates the list of pre-designations.
      */
@@ -113,7 +114,7 @@ public class Populator {
 
         String preDes = "";
 
-        /* Logic to get data from each line */
+        /* Logic to get Dimensions and Properties from each line */
         for(List<String> line : sections) {
             //Create a new UniversalBeam object and set the Designations
 
@@ -147,8 +148,7 @@ public class Populator {
         }
 
 
-        /* Fire and Detailing Information */
-
+        /* Logic to get Fire and Detailing Information from each line */
         List<List<String>> fireParams = reader.readFireAndDetailing();
 
 
@@ -156,30 +156,16 @@ public class Populator {
         //get sublist for relevant fields
         for(List<String> list : fireParams) {
 
-
+            //if the object has the matching designation
             if(ubList.get(i).getPreDesignation().equals(list.get(0))) {
                 if(ubList.get(i).getSubDesignation().equals(list.get(1))) {
-
-                    System.out.println("Found Designation " + ubList.get(i).getPreDesignation() + ubList.get(i).getSubDesignation());
-                    log.addLog("Found Designation " + ubList.get(i).getPreDesignation() + ubList.get(i).getSubDesignation());
-
-
                     //get all cells from the table that are not in the previous table
                     List<String> data = list.subList(8, 12);
 
-                    for(String s : data) {
-                        System.out.println("current data" +s);
-                        log.addLog(s);
-                    }
-
                     //Fire Parameters are stored within an object in the Beam class
                     ubList.get(i).setFireParameters(new FireParameters(data));
-
-
-                    System.out.println("Current Box 3 Sides : " +ubList.get(i).getFireParameters().box3Sides);
                 }
             }
-
 
         }
 
@@ -206,7 +192,7 @@ public class Populator {
 
 
 
-
+    //TODO: Method to take the nested objects and assign them the correct Beam Object
     public void assignNestedObjects(Object object) {
         String objectName = object.getClass().getSimpleName();
 
@@ -230,18 +216,20 @@ public class Populator {
 
 
 
-    /***
+    /**
      * Returns the list of usable UB objects
-     * @return List<UniversalBeam>
+     *
+     * @return List of UniversalBeam objects
      */
     public List<UniversalBeam> getUniversalBeams() {
         return ubList;
     }
 
 
-    /***
+    /**
      * Get the list of SubDesignations
-     * @return
+     *
+     * @return String list of sub-designations
      */
     public List<String> getSubDesignations() {
 

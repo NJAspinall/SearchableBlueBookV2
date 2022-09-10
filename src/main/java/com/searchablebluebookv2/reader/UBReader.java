@@ -12,7 +12,7 @@ import java.io.FileNotFoundException;
 import java.util.*;
 
 
-/***
+/**
  * This class will read various CSV files containing information for Universal Beams.
  *
  * @author Nathan Aspinall
@@ -31,8 +31,10 @@ public class UBReader extends SteelReader {
 
     //TODO: Read diagram images to be displayed in the UI
 
-    /***
+    /**
      * Constructor
+     *
+     * @param log The instance of the Log Class
      */
     public UBReader(Log log) {
         this.log = log;
@@ -42,7 +44,7 @@ public class UBReader extends SteelReader {
 
     //method to read dimension and properties
 
-    /***
+    /**
      * Method to read the dimensions and properties of UniversalBeams line by line into
      * a 2D array.
      * @return 2D List of rows of data
@@ -88,7 +90,7 @@ public class UBReader extends SteelReader {
     }
 
 
-    /***
+    /**
      * Method to return the information from the Fire Parameters file
      *
      * @return 2D List of rows of data

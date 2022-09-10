@@ -4,6 +4,12 @@ import com.searchablebluebookv2.models.Dimensions;
 import com.searchablebluebookv2.models.FireParameters;
 import com.searchablebluebookv2.models.Properties;
 
+
+/**
+ * Holds the read data from the corresponding CSV files
+ *
+ * @author Nathan Aspinall
+ */
 public class UniversalBeam extends OpenRolledSection {
 
     /* Base Information - Section Dimensions and Properties */
@@ -15,7 +21,7 @@ public class UniversalBeam extends OpenRolledSection {
     public FireParameters fireParameters;
     
 
-    /***
+    /**
      * Constructor
      * @param preDes The first identifying element of the Steel shape e.g. '1016 x 305'
      * @param subDes The Second identifying element of the Steel Shape e.g. 'x 584'. This
