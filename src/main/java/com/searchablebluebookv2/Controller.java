@@ -11,6 +11,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Orientation;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 
 import java.lang.reflect.Field;
@@ -46,8 +48,12 @@ public class Controller {
     public TreeView<String> treeView;
     @FXML
     public ListView<String> logView;
-
-
+    @FXML
+    public ImageView imageOne;
+    @FXML
+    public ImageView imageTwo;
+    @FXML
+    public ImageView imageThree;
 
 
     /*
@@ -412,5 +418,12 @@ public class Controller {
 
 
 
+    public void setDiagrams() {
+        List<Image> diagrams = populator.getImages();
+
+        imageOne.setImage(diagrams.get(0));
+        imageTwo.setImage(diagrams.get(1));
+        imageThree.setImage(diagrams.get(2));
+    }
 
 }

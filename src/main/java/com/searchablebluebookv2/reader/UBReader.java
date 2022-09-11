@@ -6,8 +6,10 @@ import com.searchablebluebookv2.models.Dimensions;
 import com.searchablebluebookv2.models.Properties;
 import com.searchablebluebookv2.sections.Section;
 import com.searchablebluebookv2.sections.UniversalBeam;
+import javafx.scene.image.Image;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.*;
 
@@ -20,6 +22,12 @@ import java.util.*;
 public class UBReader extends SteelReader {
 
     Log log;
+
+    public static Image img1 = new Image("src/main/resources/com/searchablebluebookv2/images/beams-dims.png");
+    public static Image img2 = new Image("src/main/resources/com/searchablebluebookv2/images/beams-detail.png");
+    public static Image img3 = new Image("src/main/resources/com/searchablebluebookv2/images/beams-axis.png");
+
+
 
 
     //Dimensions & Properties table (csv file)
@@ -38,11 +46,38 @@ public class UBReader extends SteelReader {
      */
     public UBReader(Log log) {
         this.log = log;
+
+        try {
+            FileInputStream input = new FileInputStream("src/main/resources/com/searchablebluebookv2/images/beams-dims.png");
+            img1 =;
+            input = new FileInputStream("src/main/resources/com/searchablebluebookv2/images/beams-dims.png");
+            img2 =;
+            input = new FileInputStream("src/main/resources/com/searchablebluebookv2/images/beams-dims.png");
+            img3 =;
+        }
+        catch(FileNotFoundException e) {
+
+        }
     }
 
 
 
-    //method to read dimension and properties
+
+
+
+
+    public Image getImg1() {
+        return img1;
+    }
+
+    public Image getImg2() {
+        return img2;
+    }
+
+    public Image getImg3() {
+        return img3;
+    }
+
 
     /**
      * Method to read the dimensions and properties of UniversalBeams line by line into

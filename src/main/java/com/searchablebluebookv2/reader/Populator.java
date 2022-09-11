@@ -8,6 +8,7 @@ import com.searchablebluebookv2.sections.Section;
 import com.searchablebluebookv2.sections.UniversalBeam;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.image.Image;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -35,6 +36,12 @@ public class Populator {
     Log log;
 
 
+    protected Image img1;
+    protected Image img2;
+    protected Image img3;
+
+
+
     /**
      * Constructor
      */
@@ -43,6 +50,16 @@ public class Populator {
 
         this.log = log;
     }
+
+
+
+
+
+    public List<Image> getImages() {
+        return new ArrayList<Image>(List.of(img1, img2, img3));
+    }
+
+
 
 
 
@@ -57,6 +74,11 @@ public class Populator {
     public List<String> getPreDesList() {
         return preDesList;
     }
+
+
+
+
+
 
 
     /**
@@ -93,6 +115,7 @@ public class Populator {
 
         return fields;
     }
+
 
 
 
@@ -170,7 +193,9 @@ public class Populator {
         }
 
 
-
+        img1 = reader.getImg1();
+        img2 = reader.getImg2();
+        img3 = reader.getImg3();
 
 
         /*Display for testing */

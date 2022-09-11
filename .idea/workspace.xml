@@ -4,15 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c85184a0-4536-40f2-a59e-42c20c8323da" name="Changes" comment="Added the FireParameters.java class and amended the Reader and Populator Classes to read this information into the objects.">
+    <list default="true" id="c85184a0-4536-40f2-a59e-42c20c8323da" name="Changes" comment="Updated JavaDoc, added the feature where changing the shape selection resets the comboboxes so the user can avoid crashing the application">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/searchablebluebookv2/images/beams-axis.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/searchablebluebookv2/images/beams-detail.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/searchablebluebookv2/images/beams-dims.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/Log.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/Log.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/models/Dimensions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/models/Dimensions.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/reader/Populator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/reader/Populator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/reader/SteelReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/reader/SteelReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/reader/UBReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/reader/UBReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/sections/UniversalBeam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/sections/UniversalBeam.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/searchablebluebookv2/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/searchablebluebookv2/main-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/searchablebluebookv2/stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/searchablebluebookv2/stylesheet.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -201,7 +203,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662733313993</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Updated JavaDoc, added the feature where changing the shape selection resets the comboboxes so the user can avoid crashing the application">
+      <created>1662828552619</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1662828552619</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -257,9 +266,20 @@
     <MESSAGE value="Data in TreeView is now correct and the colour scheme of the application has been changed." />
     <MESSAGE value="Added a new Log class to replace the use of the console. Added a new file to be read for Universal Beams (Fire &amp; Detailing)." />
     <MESSAGE value="Added the FireParameters.java class and amended the Reader and Populator Classes to read this information into the objects." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added the FireParameters.java class and amended the Reader and Populator Classes to read this information into the objects." />
+    <MESSAGE value="Updated JavaDoc, added the feature where changing the shape selection resets the comboboxes so the user can avoid crashing the application" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated JavaDoc, added the feature where changing the shape selection resets the comboboxes so the user can avoid crashing the application" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-field">
+          <url>file://$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/reader/UBReader.java</url>
+          <line>25</line>
+          <properties field="img1" class="com.searchablebluebookv2.reader.UBReader" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="com.searchablebluebookv2.Controller" memberName="massPerMetre" />
