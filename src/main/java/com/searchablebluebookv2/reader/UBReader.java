@@ -23,9 +23,9 @@ public class UBReader extends SteelReader {
 
     Log log;
 
-    public static Image img1 = new Image("src/main/resources/com/searchablebluebookv2/images/beams-dims.png");
-    public static Image img2 = new Image("src/main/resources/com/searchablebluebookv2/images/beams-detail.png");
-    public static Image img3 = new Image("src/main/resources/com/searchablebluebookv2/images/beams-axis.png");
+    public Image img1;
+    public Image img2;
+    public Image img3;
 
 
 
@@ -47,17 +47,9 @@ public class UBReader extends SteelReader {
     public UBReader(Log log) {
         this.log = log;
 
-        try {
-            FileInputStream input = new FileInputStream("src/main/resources/com/searchablebluebookv2/images/beams-dims.png");
-            img1 =;
-            input = new FileInputStream("src/main/resources/com/searchablebluebookv2/images/beams-dims.png");
-            img2 =;
-            input = new FileInputStream("src/main/resources/com/searchablebluebookv2/images/beams-dims.png");
-            img3 =;
-        }
-        catch(FileNotFoundException e) {
-
-        }
+        img1 = new Image("file:images/beams-dims.png", 140, 140, true, true);
+        img2 = new Image("file:com/searchablebluebookv2/images/beams-detail.png", 140, 140, true, true);
+        img3 = new Image("file:/com/searchablebluebookv2/images/beams-axis.png", 140, 140, true, true);
     }
 
 

@@ -56,7 +56,7 @@ public class Populator {
 
 
     public List<Image> getImages() {
-        return new ArrayList<Image>(List.of(img1, img2, img3));
+        return new ArrayList<>(List.of(img1, img2, img3));
     }
 
 

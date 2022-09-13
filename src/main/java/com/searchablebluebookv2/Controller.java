@@ -322,6 +322,9 @@ public class Controller {
      * @param subDes
      */
     public void populateResults(String subDes) {
+
+        setDiagrams();
+
         //TODO: Update this method to work with anonymous objects, not just UniversalBeam
         UniversalBeam ub = new UniversalBeam("test", "test");
 
