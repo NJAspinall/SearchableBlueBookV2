@@ -15,9 +15,11 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 
+import java.lang.reflect.Array;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -372,7 +374,17 @@ public class Controller {
                     //add fields to tree view element
                     for (Field f : nestedFields) {
                         try {
-                            heading.getChildren().add(new TreeItem<>(f.getName() + " : " + f.get(o)));
+
+                            //make name more readable
+                            String[] name = f.getName().split("(?<=[a-z])(?=[A-Z])");
+
+                            StringBuilder processedName = new StringBuilder();
+                            for(String s : name) {
+                                processedName.append(s+" ");
+                            }
+
+                            //display name and value
+                            heading.getChildren().add(new TreeItem<>(processedName + " : " + f.get(o)));
                             heading.setGraphic(new Separator(Orientation.HORIZONTAL));
                         } catch (IllegalAccessException e) {
                             log.addStackTrace(e);

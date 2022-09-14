@@ -11,6 +11,8 @@ import javafx.scene.image.Image;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.lang.reflect.InvocationTargetException;
 import java.util.*;
 
 
@@ -47,9 +49,36 @@ public class UBReader extends SteelReader {
     public UBReader(Log log) {
         this.log = log;
 
-        img1 = new Image("file:images/beams-dims.png", 140, 140, true, true);
-        img2 = new Image("file:com/searchablebluebookv2/images/beams-detail.png", 140, 140, true, true);
-        img3 = new Image("file:/com/searchablebluebookv2/images/beams-axis.png", 140, 140, true, true);
+        //InputStream is  = getClass().getClassLoader().getResourceAsStream("file:/src/main/resources/com/searchablebluebookv2/images");
+
+        try {
+
+            File file = new File("src/main/resources/com/searchablebluebookv2/images/beams-dims.png");
+            img1 = new Image(file.toURI().toString());
+
+            file = new File("src/main/resources/com/searchablebluebookv2/images/beams-detail.png");
+            img2 = new Image(file.toURI().toString());
+
+            file = new File("src/main/resources/com/searchablebluebookv2/images/beams-axis.png");
+            img3 = new Image(file.toURI().toString());
+
+
+
+
+
+            //img1 = new Image(getClass().getClassLoader().getResource("/resources/com/searchablebluebookv2/images/beams-dims.png").toExternalForm());
+        }
+        catch(NullPointerException e) {
+            log.addStackTrace(e);
+        }
+
+        //img1 = new Image("file:images/beams-dims.png", 140, 140, true, true);
+        //img2 = new Image("file:com/searchablebluebookv2/images/beams-detail.png", 140, 140, true, true);
+        //img3 = new Image("file:/com/searchablebluebookv2/images/beams-axis.png", 140, 140, true, true);
+
+        if(img1 != null) {
+            System.out.println("Image 1 Error: " + img1.isError());
+        }
     }
 
 

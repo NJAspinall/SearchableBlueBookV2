@@ -19,23 +19,17 @@
     <MenuBar>
         <menus>
             <Menu mnemonicParsing="false" text="File">
-                <items>
-                    <MenuItem mnemonicParsing="false" onAction="#quitApplication" text="Quit">
-                        <accelerator>
-                            <KeyCodeCombination alt="UP" code="Q" control="ANY" meta="UP" shift="UP" shortcut="UP" />
-                        </accelerator>
-                    </MenuItem>
-                </items>
+                <MenuItem mnemonicParsing="false" onAction="#quitApplication" text="Quit">
+                    <accelerator>
+                        <KeyCodeCombination alt="UP" code="Q" control="ANY" meta="UP" shift="UP" shortcut="UP" />
+                    </accelerator>
+                </MenuItem>
             </Menu>
             <Menu mnemonicParsing="false" text="Edit">
-                <items>
-                    <MenuItem mnemonicParsing="false" text="Delete" />
-                </items>
+                <MenuItem mnemonicParsing="false" text="Delete" />
             </Menu>
             <Menu mnemonicParsing="false" text="Help">
-                <items>
-                    <MenuItem mnemonicParsing="false" text="About" />
-                </items>
+                <MenuItem mnemonicParsing="false" text="About" />
             </Menu>
         </menus>
     </MenuBar>
@@ -87,41 +81,31 @@
                </HBox>
 
 
-
-            <HBox prefHeight="100.0" prefWidth="200.0" spacing="20.0" style="-fx-background-color: #ffffff;">
-               <children>
-                  <ImageView fx:id="imageOne" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" styleClass="diagram" />
-                  <ImageView fx:id="imageTwo" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" styleClass="diagram" />
-                  <ImageView fx:id="imageThree" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" styleClass="diagram" />
-                  <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" />
-               </children>
-            </HBox>
+               <HBox nodeOrientation="RIGHT_TO_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="20.0" style="-fx-background-color: #ffffff;">
+                   <ImageView fx:id="imageOne" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" styleClass="diagram" />
+                   <ImageView fx:id="imageTwo" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" styleClass="diagram" />
+                   <ImageView fx:id="imageThree" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" styleClass="diagram" />
+                   <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" />
+               </HBox>
 
 
                <SplitPane dividerPositions="0.4029255319148936" prefHeight="420.0" prefWidth="754.0">
                    <items>
                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" styleClass="dataPane">
-                           <children>
+                           <VBox prefHeight="228.0" prefWidth="280.0" AnchorPane.bottomAnchor="177.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
 
-                               <VBox prefHeight="228.0" prefWidth="280.0" AnchorPane.bottomAnchor="177.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
-                                   <children>
-                                       <Label alignment="TOP_CENTER" prefHeight="27.0" prefWidth="279.0" styleClass="text" textAlignment="CENTER">
-                                           <String fx:value="supplementary information" />
-                                       </Label>
-                                   </children>
-                               </VBox>
+                               <Label alignment="TOP_CENTER" prefHeight="27.0" prefWidth="279.0" styleClass="text" textAlignment="CENTER">
+                                   <String fx:value="supplementary information" />
+                               </Label>
+                           </VBox>
 
-                               <ListView id="logView" fx:id="logView" layoutX="10.0" layoutY="177.0" prefHeight="213.0" prefWidth="280.0" style="-fx-font-size:14px" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="177.0" />
+                           <ListView id="logView" fx:id="logView" layoutX="10.0" layoutY="177.0" prefHeight="213.0" prefWidth="280.0" style="-fx-font-size:14px" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="177.0" />
 
-                           </children>
                        </AnchorPane>
 
                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" styleClass="dataPane">
 
-                           <children>
-                               <TreeView id="treeView" fx:id="treeView" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
-                           </children>
-
+                           <TreeView id="treeView" fx:id="treeView" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
                        </AnchorPane>
                    </items>
                </SplitPane>

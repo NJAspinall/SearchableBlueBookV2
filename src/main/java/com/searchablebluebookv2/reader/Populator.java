@@ -47,14 +47,15 @@ public class Populator {
      */
     public Populator(Log log) {
         this.rFactory = new ReaderFactory();
-
         this.log = log;
     }
 
 
-
-
-
+    /**
+     * Return the list of loaded images dependent on the Steel shape selected
+     *
+     * @return list of Images
+     */
     public List<Image> getImages() {
         return new ArrayList<>(List.of(img1, img2, img3));
     }
@@ -105,6 +106,7 @@ public class Populator {
                     //get all fields and add set the list of fields this method will return
                     fields = Arrays.asList(ub.getClass().getFields());
             }
+
 
             //TODO: add more statements for each object type
 
