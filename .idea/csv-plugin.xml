@@ -17,6 +17,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\src\main\java\com\searchablebluebookv2\data\universalColumns\UC-secpropsdimsprops.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
       </map>
     </option>
   </component>

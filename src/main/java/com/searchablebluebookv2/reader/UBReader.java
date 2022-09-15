@@ -16,6 +16,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.*;
 
 
+
 /**
  * This class will read various CSV files containing information for Universal Beams.
  *
@@ -23,14 +24,23 @@ import java.util.*;
  */
 public class UBReader extends SteelReader {
 
+    /*
+     * Log
+     */
     Log log;
 
+    /*
+     * Images
+     */
     public Image img1;
     public Image img2;
     public Image img3;
 
 
 
+    /*
+     * CSV files
+     */
 
     //Dimensions & Properties table (csv file)
     public static String DIMPROPS = "src/main/java/com/searchablebluebookv2/data/universalBeams/UB-secpropsdimsprops.csv";
@@ -39,7 +49,7 @@ public class UBReader extends SteelReader {
     public static String FIREDETAILS = "src/main/java/com/searchablebluebookv2/data/universalBeams/UB-secpropsdetailingfire.csv";
 
 
-    //TODO: Read diagram images to be displayed in the UI
+
 
     /**
      * Constructor
@@ -47,12 +57,11 @@ public class UBReader extends SteelReader {
      * @param log The instance of the Log Class
      */
     public UBReader(Log log) {
+        //load Log object
         this.log = log;
 
-        //InputStream is  = getClass().getClassLoader().getResourceAsStream("file:/src/main/resources/com/searchablebluebookv2/images");
-
+        //load images
         try {
-
             File file = new File("src/main/resources/com/searchablebluebookv2/images/beams-dims.png");
             img1 = new Image(file.toURI().toString());
 
@@ -61,43 +70,45 @@ public class UBReader extends SteelReader {
 
             file = new File("src/main/resources/com/searchablebluebookv2/images/beams-axis.png");
             img3 = new Image(file.toURI().toString());
-
-
-
-
-
-            //img1 = new Image(getClass().getClassLoader().getResource("/resources/com/searchablebluebookv2/images/beams-dims.png").toExternalForm());
         }
         catch(NullPointerException e) {
             log.addStackTrace(e);
         }
-
-        //img1 = new Image("file:images/beams-dims.png", 140, 140, true, true);
-        //img2 = new Image("file:com/searchablebluebookv2/images/beams-detail.png", 140, 140, true, true);
-        //img3 = new Image("file:/com/searchablebluebookv2/images/beams-axis.png", 140, 140, true, true);
-
-        if(img1 != null) {
-            System.out.println("Image 1 Error: " + img1.isError());
-        }
     }
 
 
-
-
-
-
-
+    /**
+     * Get the first image
+     *
+     * @return png image
+     */
     public Image getImg1() {
         return img1;
     }
 
+    /**
+     * Get the second image
+     *
+     * @return png image
+     */
     public Image getImg2() {
         return img2;
     }
 
+    /**
+     * Get the third image
+     *
+     * @return png image
+     */
     public Image getImg3() {
         return img3;
     }
+
+
+
+
+
+
 
 
     /**
@@ -144,6 +155,11 @@ public class UBReader extends SteelReader {
         //return list of UniversalBeam objects
         return sections;
     }
+
+
+
+
+
 
 
     /**

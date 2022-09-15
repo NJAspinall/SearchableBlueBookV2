@@ -4,6 +4,7 @@ import com.searchablebluebookv2.reader.Populator;
 import com.searchablebluebookv2.reader.SteelReader;
 import com.searchablebluebookv2.sections.Section;
 import com.searchablebluebookv2.sections.UniversalBeam;
+import com.searchablebluebookv2.sections.UniversalColumn;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -162,6 +163,9 @@ public class Controller {
     @FXML
     protected void onShapeSelect(ActionEvent actionEvent) {
 
+        /*TODO: remember if a structuralHollowSection or an OpenRolledSection.
+                search for designations for one and search for diameter thickness for the other */
+
         if( (currentShape != null) && (currentShape.equals(shapeSelect.getValue())) ) {
             preDesSelect.setValue("");
         }
@@ -272,6 +276,8 @@ public class Controller {
     @FXML
     public void onPreDesSelect(ActionEvent actionEvent) {
 
+        //TODO: Add live search feature for measurements (search from list of possible values)
+
         //if preDes is changed after a full selection has been made
         if((selectedSubDes != null) && (!selectedSubDes.isBlank())) {
             selectedSubDes = "";
@@ -328,14 +334,27 @@ public class Controller {
         setDiagrams();
 
         //TODO: Update this method to work with anonymous objects, not just UniversalBeam
-        UniversalBeam ub = new UniversalBeam("test", "test");
+        //UniversalBeam ub = new UniversalBeam("test", "test");
+
+        Section ub = new Section("test", "test");
 
         //Find the object to get results from
         for(Section s : sections) {
             if(s.getPreDesignation().equals(selectedPreDes)) {
                 if (s.getSubDesignation().equals(subDes)) {
                     //System.out.println("success");
-                    ub = (UniversalBeam) s;
+
+                    String name = s.getClass().getSimpleName();
+
+                    switch(name) {
+                        case "UniversalBeam" -> {
+                            ub = (UniversalBeam) s;
+                        }
+
+                        case "UniversalColumn" -> {
+                            ub = (UniversalColumn) s;
+                        }
+                    }
                 }
             }
         }
@@ -385,8 +404,8 @@ public class Controller {
 
                             //display name and value
                             heading.getChildren().add(new TreeItem<>(processedName + " : " + f.get(o)));
-                            heading.setGraphic(new Separator(Orientation.HORIZONTAL));
-                        } catch (IllegalAccessException e) {
+                        }
+                        catch (IllegalAccessException e) {
                             log.addStackTrace(e);
                         }
                     }

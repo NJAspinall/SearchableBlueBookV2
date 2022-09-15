@@ -13,6 +13,10 @@ public class ReaderFactory implements ReaderFactoryIF {
             return new UBReader(log);
         }
 
+        else if(discrim.equals("Universal Columns (UC)")) {
+            return new UCReader(log);
+        }
+
         else {
             return null;
         }

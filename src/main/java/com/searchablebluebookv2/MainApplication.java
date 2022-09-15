@@ -12,6 +12,11 @@ import java.net.URL;
 /***
  * This main class loads the GUI using JavaFX and the FXML Loader.
  *
+ * This purpose of this program is to read measurements from files regarding different types
+ *  and measurements of Steel Beams and allow a user to search through them.
+ *
+ *  The information read can be found here : <a href="https://www.steelforlifebluebook.co.uk/">Steel Blue Book</a>.
+ *
  * @author Nathan Aspinall
  * @version 0.9
  */
@@ -31,7 +36,7 @@ public class MainApplication extends Application {
         stage.setTitle("Searchable Blue Book");
         stage.setScene(scene);
 
-
+        //Load Controller class for interacting with the UI
         Controller controller = new Controller();
         controller.setContextMenu();
         controller.createLog();

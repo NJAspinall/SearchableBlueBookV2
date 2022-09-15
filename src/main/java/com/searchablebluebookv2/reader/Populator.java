@@ -6,6 +6,7 @@ import com.searchablebluebookv2.models.FireParameters;
 import com.searchablebluebookv2.models.Properties;
 import com.searchablebluebookv2.sections.Section;
 import com.searchablebluebookv2.sections.UniversalBeam;
+import com.searchablebluebookv2.sections.UniversalColumn;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.image.Image;
@@ -32,6 +33,8 @@ public class Populator {
     List<String> subDesList;
 
     List<UniversalBeam> ubList;
+
+    List<UniversalColumn> ucList;
 
     Log log;
 
@@ -215,6 +218,111 @@ public class Populator {
 
 
     }
+
+
+
+
+
+
+
+
+    /**
+     * Formats the returned data from the UniversalBeams file into usable UB objects.<br>
+     * Also populates the list of pre-designations.
+     */
+    public void populateUniversalColumns() {
+        reader = rFactory.createReader("Universal Columns (UC)", log);
+        List<List<String>> sections = reader.readDimensionsAndProperties();
+
+        //list to hold read universal beams objects
+        ucList = new ArrayList<>();
+        //list of read pre-designation values to be returned to the Controller
+        preDesList = new ArrayList<>();
+
+        String preDes = "";
+
+        /* Logic to get Dimensions and Properties from each line */
+        for(List<String> line : sections) {
+            //Create a new UniversalBeam object and set the Designations
+
+            /* in the csv file only the first row of each preDesignation will actually
+            hold the preDesignation value, so it needs to be assigned to the following
+            valid rows (until the next PreDesignation is met)*/
+            if(!line.get(0).isBlank() || !line.get(0).equals("")) {
+                preDes = line.get(0);
+                preDesList.add(preDes);
+            }
+
+            //Instantiate Steel object
+            UniversalColumn newColumn = new UniversalColumn(preDes, line.get(1));
+
+
+            /* Store basic Section Properties */
+
+            //All cells under 'Dimensions' SubHeading are taken from the file
+            List<String> dimens = line.subList(2, 17);
+
+            //Dimensions are stored within an object
+            newColumn.dimensions = new Dimensions(dimens);
+
+            //All cells under 'Properties' SubHeading are taken from the file
+            List<String> props = line.subList(17, 30);
+
+            //Properties are stored within an object
+            newColumn.properties = new Properties(props);
+
+            ucList.add(newColumn);
+        }
+
+
+        /* Logic to get Fire and Detailing Information from each line */
+        List<List<String>> fireParams = reader.readFireAndDetailing();
+
+
+        int i = 0;
+        //get sublist for relevant fields
+        for(List<String> list : fireParams) {
+
+            //if the object has the matching designation
+            if(ubList.get(i).getPreDesignation().equals(list.get(0))) {
+                if(ubList.get(i).getSubDesignation().equals(list.get(1))) {
+                    //get all cells from the table that are not in the previous table
+                    List<String> data = list.subList(8, 12);
+
+                    //Fire Parameters are stored within an object in the Beam class
+                    ubList.get(i).setFireParameters(new FireParameters(data));
+                }
+            }
+
+        }
+
+
+        img1 = reader.getImg1();
+        img2 = reader.getImg2();
+        img3 = reader.getImg3();
+
+
+        /*Display for testing */
+        /*
+        int i = 0;
+        for(UniversalBeam beam : ubList) {
+            i++;
+            System.out.println(i+". ");
+            System.out.println(beam.getPreDesignation());
+            System.out.println(beam.getSubDesignation());
+        }
+        */
+
+
+
+
+    }
+
+
+
+
+
+
 
 
 
