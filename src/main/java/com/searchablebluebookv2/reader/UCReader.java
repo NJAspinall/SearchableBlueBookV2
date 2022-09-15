@@ -28,10 +28,10 @@ public class UCReader extends SteelReader {
      */
 
     //Dimensions & Properties table (csv file)
-    public static String DIMPROPS = "src/main/java/com/searchablebluebookv2/data/universalBeams/UC-secpropsdimsprops.csv";
+    public static String DIMPROPS = "src/main/java/com/searchablebluebookv2/data/universalColumns/UC-secpropsdimsprops.csv";
 
     //Fire Parameters and Detailing table (csv file)
-    public static String FIREDETAILS = "src/main/java/com/searchablebluebookv2/data/universalBeams/UC-secpropsdetailingfire.csv.csv";
+    public static String FIREDETAILS = "src/main/java/com/searchablebluebookv2/data/universalColumns/UC-secpropsdetailingfire.csv";
 
 
 
@@ -47,14 +47,27 @@ public class UCReader extends SteelReader {
 
         //load images
         try {
-            File file = new File("src/main/resources/com/searchablebluebookv2/images/beams-dims.png");
+            File file = new File("src/main/resources/com/searchablebluebookv2/images/columns-dims.png");
             img1 = new Image(file.toURI().toString());
 
-            file = new File("src/main/resources/com/searchablebluebookv2/images/beams-detail.png");
+            file = new File("src/main/resources/com/searchablebluebookv2/images/columns-detail.png");
             img2 = new Image(file.toURI().toString());
 
-            file = new File("src/main/resources/com/searchablebluebookv2/images/beams-axis.png");
+            file = new File("src/main/resources/com/searchablebluebookv2/images/columns-axis.png");
             img3 = new Image(file.toURI().toString());
+
+
+            if(img1.isError()) {
+                System.out.println("img1 error.");
+            }
+            if(img2.isError()) {
+                System.out.println("img2 error.");
+            }
+            if(img3.isError()) {
+                System.out.println("img3 error.");
+            }
+
+
         }
         catch(NullPointerException e) {
             log.addStackTrace(e);
@@ -80,19 +93,34 @@ public class UCReader extends SteelReader {
 
 
 
+    /**
+     * Get the first image
+     *
+     * @return png image
+     */
     @Override
     public Image getImg1() {
-        return null;
+        return img1;
     }
 
+    /**
+     * Get the second image
+     *
+     * @return png image
+     */
     @Override
     public Image getImg2() {
-        return null;
+        return img2;
     }
 
+    /**
+     * Get the third image
+     *
+     * @return png image
+     */
     @Override
     public Image getImg3() {
-        return null;
+        return img3;
     }
 
 
@@ -143,6 +171,37 @@ public class UCReader extends SteelReader {
 
     @Override
     public List<List<String>> readFireAndDetailing() {
-        return null;
+        List<List<String>> sections = new ArrayList<>();
+
+        int count = 0;
+
+        try {
+            File file = new File(FIREDETAILS);
+            Scanner reader = new Scanner(file);
+
+            while (reader.hasNextLine()) {
+                String data = reader.nextLine().trim();
+
+                 /* ignore first 9 lines which is just supplementary
+                information about the source of the data */
+                if((count >= 9) && (count <= 55)) {
+                    List<String> line = new LinkedList<>(Arrays.asList(data.split(",")));
+
+                    if(line.size() >= 5) { //do not read empty lines or lines containing notes and comments
+                        sections.add(line);
+                    }
+                }
+                count++;
+            }
+        }
+        catch (FileNotFoundException e) {
+            log.addLog("The 'Fire Detailing' file could not be found.");
+            log.addStackTrace(e);
+        } catch(Exception e) {
+            log.addLog("Unknown Error! Please restart the application.");
+            log.addStackTrace(e);
+        }
+
+        return sections;
     }
 }

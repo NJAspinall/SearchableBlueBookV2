@@ -197,26 +197,10 @@ public class Populator {
 
         }
 
-
+        //Get the diagrams for the Section type
         img1 = reader.getImg1();
         img2 = reader.getImg2();
         img3 = reader.getImg3();
-
-
-        /*Display for testing */
-        /*
-        int i = 0;
-        for(UniversalBeam beam : ubList) {
-            i++;
-            System.out.println(i+". ");
-            System.out.println(beam.getPreDesignation());
-            System.out.println(beam.getSubDesignation());
-        }
-        */
-
-
-
-
     }
 
 
@@ -227,14 +211,14 @@ public class Populator {
 
 
     /**
-     * Formats the returned data from the UniversalBeams file into usable UB objects.<br>
+     * Formats the returned data from the UniversalColumns file into usable UC objects.<br>
      * Also populates the list of pre-designations.
      */
     public void populateUniversalColumns() {
         reader = rFactory.createReader("Universal Columns (UC)", log);
         List<List<String>> sections = reader.readDimensionsAndProperties();
 
-        //list to hold read universal beams objects
+        //list to hold read universal Columns objects
         ucList = new ArrayList<>();
         //list of read pre-designation values to be returned to the Controller
         preDesList = new ArrayList<>();
@@ -243,7 +227,7 @@ public class Populator {
 
         /* Logic to get Dimensions and Properties from each line */
         for(List<String> line : sections) {
-            //Create a new UniversalBeam object and set the Designations
+            //Create a new UniversalColumn object and set the Designations
 
             /* in the csv file only the first row of each preDesignation will actually
             hold the preDesignation value, so it needs to be assigned to the following
@@ -284,38 +268,22 @@ public class Populator {
         for(List<String> list : fireParams) {
 
             //if the object has the matching designation
-            if(ubList.get(i).getPreDesignation().equals(list.get(0))) {
-                if(ubList.get(i).getSubDesignation().equals(list.get(1))) {
+            if(ucList.get(i).getPreDesignation().equals(list.get(0))) {
+                if(ucList.get(i).getSubDesignation().equals(list.get(1))) {
                     //get all cells from the table that are not in the previous table
                     List<String> data = list.subList(8, 12);
 
-                    //Fire Parameters are stored within an object in the Beam class
-                    ubList.get(i).setFireParameters(new FireParameters(data));
+                    //Fire Parameters are stored within an object in the Column class
+                    ucList.get(i).setFireParameters(new FireParameters(data));
                 }
             }
 
         }
 
-
+        //Get the diagrams for the Section type
         img1 = reader.getImg1();
         img2 = reader.getImg2();
         img3 = reader.getImg3();
-
-
-        /*Display for testing */
-        /*
-        int i = 0;
-        for(UniversalBeam beam : ubList) {
-            i++;
-            System.out.println(i+". ");
-            System.out.println(beam.getPreDesignation());
-            System.out.println(beam.getSubDesignation());
-        }
-        */
-
-
-
-
     }
 
 
@@ -358,6 +326,17 @@ public class Populator {
      */
     public List<UniversalBeam> getUniversalBeams() {
         return ubList;
+    }
+
+
+
+    /**
+     * Returns the list of usable UC objects
+     *
+     * @return List of UniversalColumn objects
+     */
+    public List<UniversalColumn> getUniversalColumns() {
+        return ucList;
     }
 
 

@@ -172,6 +172,7 @@ public class Controller {
 
         else {
             //remove all current results and options from the dropdowns as they will need to be replaced
+            sections.clear();
             clearResults();
             clearLists();
 
@@ -187,7 +188,7 @@ public class Controller {
 
             //read the data for the shape that has been selected
             switch (currentShape) {
-                case "Universal Beams (UB)":
+                case "Universal Beams (UB)" -> {
                     //read Universal Beams data into objects
                     populator.populateUniversalBeams();
 
@@ -198,38 +199,57 @@ public class Controller {
                     //get the objects and add them to the list of current Sections the application will be dealing with
                     List<UniversalBeam> ubs = populator.getUniversalBeams();
                     sections.addAll(ubs);
-                    break;
+                }
+
+
+                case "Universal Columns (UC)" -> {
+                    //read Universal Columns data into objects
+                    populator.populateUniversalColumns();
+
+                    //get the objects Pre-Designations to populate the dropdown
+                    ObservableList<String> preDesData = FXCollections.observableArrayList(populator.getPreDesList());
+                    preDesSelect.setItems(preDesData);
+
+                    //get the objects and add them to the list of current Sections the application will be dealing with
+                    List<UniversalColumn> ucs = populator.getUniversalColumns();
+                    sections.addAll(ucs);
+                }
 
 
                 //TODO: create relevant methods and reference inside 'if' statements
                 //TODO: Create new Reader classes to read the objects
-                case "Universal Columns (UC)":
 
-                    break;
-                case "Universal Bearing Piles (UBP)":
 
-                    break;
-                case "Parallel Flange Channels (PFC)":
+                case "Universal Bearing Piles (UBP)" -> {
 
-                    break;
-                case "Equal Leg Angles (L)":
+                }
+                case "Parallel Flange Channels (PFC)" -> {
 
-                    break;
-                case "Unequal Leg Angles (L)":
+                }
 
-                    break;
-                case "Back to back Equal Leg Angles (L)":
+                case "Equal Leg Angles (L)" -> {
 
-                    break;
-                case "Back to back Unequal Leg Angles (L)":
+                }
 
-                    break;
-                case "Tees (T) split from UB":
+                case "Unequal Leg Angles (L)" -> {
 
-                    break;
-                case "Tees (T) split from UC":
+                }
 
-                    break;
+                case "Back to back Equal Leg Angles (L)" -> {
+
+                }
+
+                case "Back to back Unequal Leg Angles (L)" -> {
+
+                }
+
+                case "Tees (T) split from UB" -> {
+
+                }
+
+                case "Tees (T) split from UC" -> {
+
+                }
             }
         }
     }
@@ -342,18 +362,12 @@ public class Controller {
         for(Section s : sections) {
             if(s.getPreDesignation().equals(selectedPreDes)) {
                 if (s.getSubDesignation().equals(subDes)) {
-                    //System.out.println("success");
 
                     String name = s.getClass().getSimpleName();
-
                     switch(name) {
-                        case "UniversalBeam" -> {
-                            ub = (UniversalBeam) s;
-                        }
+                        case "UniversalBeam" -> ub = (UniversalBeam) s;
 
-                        case "UniversalColumn" -> {
-                            ub = (UniversalColumn) s;
-                        }
+                        case "UniversalColumn" -> ub = (UniversalColumn) s;
                     }
                 }
             }
@@ -399,7 +413,7 @@ public class Controller {
 
                             StringBuilder processedName = new StringBuilder();
                             for(String s : name) {
-                                processedName.append(s+" ");
+                                processedName.append(s + " ");
                             }
 
                             //display name and value

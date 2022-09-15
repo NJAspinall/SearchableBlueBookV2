@@ -82,6 +82,7 @@ public class UBReader extends SteelReader {
      *
      * @return png image
      */
+    @Override
     public Image getImg1() {
         return img1;
     }
@@ -91,6 +92,7 @@ public class UBReader extends SteelReader {
      *
      * @return png image
      */
+    @Override
     public Image getImg2() {
         return img2;
     }
@@ -100,6 +102,7 @@ public class UBReader extends SteelReader {
      *
      * @return png image
      */
+    @Override
     public Image getImg3() {
         return img3;
     }
