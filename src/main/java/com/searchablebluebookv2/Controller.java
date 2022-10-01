@@ -328,7 +328,7 @@ public class Controller {
     public void onSubDesSelect(ActionEvent actionEvent) {
         //TODO: if preDes is changed error occurs, prevent this.
         selectedSubDes = subDesSelect.getValue();
-        log.addLog("Designation : " +selectedPreDes +selectedSubDes+ " selected.");
+        log.addLog("Designation : " +selectedPreDes +" " +selectedSubDes+ " selected.");
 
         if((selectedSubDes != null) && (!selectedSubDes.isBlank())) {
             populateResults(selectedSubDes);
@@ -351,6 +351,8 @@ public class Controller {
      */
     public void populateResults(String subDes) {
 
+        System.out.println("populating results...");
+
         setDiagrams();
 
         //TODO: Update this method to work with anonymous objects, not just UniversalBeam
@@ -358,38 +360,38 @@ public class Controller {
 
         Section ub = new Section("test", "test");
 
+        List<Field> fields = new ArrayList<>();
+
         //Find the object to get results from
-        for(Section s : sections) {
-            if(s.getPreDesignation().equals(selectedPreDes)) {
-                if (s.getSubDesignation().equals(subDes)) {
+        for (Section s : sections) {
+            if ((s.getPreDesignation().equals(selectedPreDes)) &&
+                    (s.getSubDesignation().equals(subDes))) {
 
-                    String name = s.getClass().getSimpleName();
-                    switch(name) {
-                        case "UniversalBeam" -> ub = (UniversalBeam) s;
+                log.addLog(s.getPreDesignation() +" " +s.getSubDesignation() +" found.");
 
-                        case "UniversalColumn" -> ub = (UniversalColumn) s;
+                //get List of fields from the chosen object
+                String name = s.getClass().getSimpleName();
+                switch (name) {
+                    case "UniversalBeam" -> {
+                        ub = (UniversalBeam) s;
+                        fields = populator.getFields(ub);
+                    }
+
+                    case "UniversalColumn" -> {
+                        ub = (UniversalColumn) s;
+                        fields = populator.getFields(ub);
                     }
                 }
             }
         }
 
 
-        //get List of fields from the chosen object
-        List<Field> fields = populator.getFields(ub);
-
-        //get List of fields (objects) from the chosen object
-        List<Object> objects = new ArrayList<>();
-
-        for(Field f : fields) {
-            //get the field (f) from the specified object (anonObject)
-            // e.g f.get(anonObject);
-            try {
-                //the fields (f) in this case are nested objects containing more fields
-                objects.add(f.get(ub));
-            } catch (IllegalAccessException e) {
-                throw new RuntimeException(e);
-            }
+        if(fields.isEmpty()) {
+            log.addLog("No Fields to read");
         }
+
+        //Get the fields of the objects, stored as fields in this object (ub)
+        List<Object> objects = populator.getNestedObjects(fields, ub);
 
         //The Root item for the tree
         TreeItem<String> rootItem = new TreeItem<>(ub.getPreDesignation() + ub.getSubDesignation());

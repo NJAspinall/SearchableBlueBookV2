@@ -15,8 +15,6 @@ import java.util.List;
  * viewed within the UI rather than the Console.
  */
 public class Log {
-
-    //todo: make observable list
     public ObservableList<String> log;
     public Controller controller;
 

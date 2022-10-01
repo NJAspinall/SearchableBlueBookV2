@@ -119,6 +119,7 @@ public class UBReader extends SteelReader {
      * a 2D array.
      * @return 2D List of rows of data
      */
+    @Override
     public List<List<String>> readDimensionsAndProperties() {
 
         List<List<String>> sections = new ArrayList<>();
@@ -170,6 +171,7 @@ public class UBReader extends SteelReader {
      *
      * @return 2D List of rows of data
      */
+    @Override
     public List<List<String>> readFireAndDetailing() {
 
         List<List<String>> sections = new ArrayList<>();

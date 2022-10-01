@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c85184a0-4536-40f2-a59e-42c20c8323da" name="Changes" comment="Adding basic functionality for UniversalColumn, including CSVs and images">
-      <change beforePath="$PROJECT_DIR$/.idea/csv-plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/csv-plugin.xml" afterDir="false" />
+    <list default="true" id="c85184a0-4536-40f2-a59e-42c20c8323da" name="Changes" comment="Added more functionality to UniversalColumns. Images display however the fields do not.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/Log.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/Log.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/reader/Populator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/reader/Populator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/reader/UBReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/reader/UBReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/reader/UCReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/reader/UCReader.java" afterDir="false" />
@@ -234,7 +234,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663241536552</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Added more functionality to UniversalColumns. Images display however the fields do not.">
+      <created>1663245479840</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1663245479840</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -295,7 +302,8 @@
     <MESSAGE value="ImageViews do not work due to the image not being found. probably" />
     <MESSAGE value="The three ImageViews now work, and some Regex has been added in to separate the variable names into a more readable string." />
     <MESSAGE value="Adding basic functionality for UniversalColumn, including CSVs and images" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding basic functionality for UniversalColumn, including CSVs and images" />
+    <MESSAGE value="Added more functionality to UniversalColumns. Images display however the fields do not." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added more functionality to UniversalColumns. Images display however the fields do not." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

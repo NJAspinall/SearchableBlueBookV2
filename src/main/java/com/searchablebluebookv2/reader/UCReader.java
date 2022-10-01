@@ -124,6 +124,12 @@ public class UCReader extends SteelReader {
     }
 
 
+
+
+
+
+
+
     /**
      * Method to read the dimensions and properties of UniversalColumns line by line into
      * a 2D array.
@@ -169,6 +175,17 @@ public class UCReader extends SteelReader {
         return sections;
     }
 
+
+
+
+
+
+
+    /**
+     * Method to return the information from the Fire Parameters file
+     *
+     * @return 2D List of rows of data
+     */
     @Override
     public List<List<String>> readFireAndDetailing() {
         List<List<String>> sections = new ArrayList<>();

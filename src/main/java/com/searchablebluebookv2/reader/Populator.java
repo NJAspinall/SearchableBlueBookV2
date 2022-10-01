@@ -54,6 +54,12 @@ public class Populator {
     }
 
 
+
+
+
+
+
+
     /**
      * Return the list of loaded images dependent on the Steel shape selected
      *
@@ -77,6 +83,34 @@ public class Populator {
      */
     public List<String> getPreDesList() {
         return preDesList;
+    }
+
+
+    /**
+     * Method to get the fields stored within a nested object of the section Object.
+     *
+     * @param fields - The fields we want to find in the object
+     * @param section - the object we want to search
+     * @return nestedFields, a List of the fields found within the section Object
+     */
+    public List<Object> getNestedObjects(List<Field> fields, Section section) {
+
+        //get List of fields  from the chosen object
+        List<Object> nestedFields = new ArrayList<>();
+
+        for(Field f : fields) {
+            System.out.println(f.getName());
+            //get the field (f) from the specified object (anonObject)
+            // e.g f.get(anonObject);
+            try {
+                //the fields (f) in this case are nested objects containing more fields
+                nestedFields.add(f.get(section));
+            } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+        return nestedFields;
     }
 
 
