@@ -378,6 +378,7 @@ public class Controller {
                     }
 
                     case "UniversalColumn" -> {
+                        log.addLog("Cast [Universal Column]");
                         ub = (UniversalColumn) s;
                         fields = populator.getFields(ub);
                     }

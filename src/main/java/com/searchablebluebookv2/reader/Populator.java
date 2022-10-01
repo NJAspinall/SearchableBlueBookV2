@@ -138,17 +138,20 @@ public class Populator {
         //Test against the object's Class name
         switch (typeName) {
             case "UniversalBeam" -> {
-                    //cast to Universal Beam
-                    UniversalBeam ub = (UniversalBeam) section;
-                    //get all fields and add set the list of fields this method will return
-                    fields = Arrays.asList(ub.getClass().getFields());
+                //cast to Universal Beam
+                UniversalBeam ub = (UniversalBeam) section;
+                //get all fields and add set the list of fields this method will return
+                fields = Arrays.asList(ub.getClass().getFields());
             }
 
 
             //TODO: add more statements for each object type
 
-            case "UniversalColumns" -> {
-
+            case "UniversalColumn" -> {
+                //cast to Universal Column
+                UniversalColumn uc = (UniversalColumn) section;
+                //get all fields and add set the list of fields this method will return
+                fields = Arrays.asList(uc.getClass().getFields());
             }
         }
 

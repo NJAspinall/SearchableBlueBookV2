@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c85184a0-4536-40f2-a59e-42c20c8323da" name="Changes" comment="Added more functionality to UniversalColumns. Images display however the fields do not.">
+    <list default="true" id="c85184a0-4536-40f2-a59e-42c20c8323da" name="Changes" comment="Abstracted some code from the Controller to the Populator Class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/Log.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/Log.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/reader/Populator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/reader/Populator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/reader/UBReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/reader/UBReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/reader/UCReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/reader/UCReader.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -241,7 +238,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663245479840</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Abstracted some code from the Controller to the Populator Class">
+      <created>1664645134448</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1664645134448</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -303,7 +307,8 @@
     <MESSAGE value="The three ImageViews now work, and some Regex has been added in to separate the variable names into a more readable string." />
     <MESSAGE value="Adding basic functionality for UniversalColumn, including CSVs and images" />
     <MESSAGE value="Added more functionality to UniversalColumns. Images display however the fields do not." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added more functionality to UniversalColumns. Images display however the fields do not." />
+    <MESSAGE value="Abstracted some code from the Controller to the Populator Class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Abstracted some code from the Controller to the Populator Class" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
