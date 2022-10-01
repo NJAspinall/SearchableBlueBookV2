@@ -127,13 +127,10 @@ public class Populator {
      */
     public List<Field> getFields(Section section) {
         //list to hold the fields
-        //TODO: Return 2D array containing fields, and objects with more fields so less logic is in the controller.
         List<Field> fields = new ArrayList<>();
 
         //get the Class name of the object
         String typeName = section.getClass().getSimpleName();
-
-        //TODO: change this method so it can go inside of the nested objects and get their field names too.
 
         //Test against the object's Class name
         switch (typeName) {
@@ -143,16 +140,14 @@ public class Populator {
                 //get all fields and add set the list of fields this method will return
                 fields = Arrays.asList(ub.getClass().getFields());
             }
-
-
-            //TODO: add more statements for each object type
-
             case "UniversalColumn" -> {
                 //cast to Universal Column
                 UniversalColumn uc = (UniversalColumn) section;
                 //get all fields and add set the list of fields this method will return
                 fields = Arrays.asList(uc.getClass().getFields());
             }
+
+            //TODO: add more statements for each object type
         }
 
         return fields;

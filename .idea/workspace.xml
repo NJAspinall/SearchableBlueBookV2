@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c85184a0-4536-40f2-a59e-42c20c8323da" name="Changes" comment="Abstracted some code from the Controller to the Populator Class">
+    <list default="true" id="c85184a0-4536-40f2-a59e-42c20c8323da" name="Changes" comment="Now works more generically to take more than one subtype of Section">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/reader/Populator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/searchablebluebookv2/reader/Populator.java" afterDir="false" />
@@ -245,7 +245,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664645134448</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Now works more generically to take more than one subtype of Section">
+      <created>1664645697797</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1664645697797</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -308,7 +315,8 @@
     <MESSAGE value="Adding basic functionality for UniversalColumn, including CSVs and images" />
     <MESSAGE value="Added more functionality to UniversalColumns. Images display however the fields do not." />
     <MESSAGE value="Abstracted some code from the Controller to the Populator Class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Abstracted some code from the Controller to the Populator Class" />
+    <MESSAGE value="Now works more generically to take more than one subtype of Section" />
+    <option name="LAST_COMMIT_MESSAGE" value="Now works more generically to take more than one subtype of Section" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

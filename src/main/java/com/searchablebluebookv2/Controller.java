@@ -186,15 +186,13 @@ public class Controller {
             //initialise the Populator class and pass it the instance of the Log class
             populator = new Populator(log);
 
+            /* TODO: maybe have seperate methods for reading OpenRolledSections
+                and Structural Hollow Sections */
             //read the data for the shape that has been selected
             switch (currentShape) {
                 case "Universal Beams (UB)" -> {
                     //read Universal Beams data into objects
                     populator.populateUniversalBeams();
-
-                    //get the objects Pre-Designations to populate the dropdown
-                    ObservableList<String> preDesData = FXCollections.observableArrayList(populator.getPreDesList());
-                    preDesSelect.setItems(preDesData);
 
                     //get the objects and add them to the list of current Sections the application will be dealing with
                     List<UniversalBeam> ubs = populator.getUniversalBeams();
@@ -206,14 +204,12 @@ public class Controller {
                     //read Universal Columns data into objects
                     populator.populateUniversalColumns();
 
-                    //get the objects Pre-Designations to populate the dropdown
-                    ObservableList<String> preDesData = FXCollections.observableArrayList(populator.getPreDesList());
-                    preDesSelect.setItems(preDesData);
-
                     //get the objects and add them to the list of current Sections the application will be dealing with
                     List<UniversalColumn> ucs = populator.getUniversalColumns();
                     sections.addAll(ucs);
                 }
+
+
 
 
                 //TODO: create relevant methods and reference inside 'if' statements
@@ -251,6 +247,9 @@ public class Controller {
 
                 }
             }
+            //get the objects Pre-Designations to populate the dropdown
+            ObservableList<String> preDesData = FXCollections.observableArrayList(populator.getPreDesList());
+            preDesSelect.setItems(preDesData);
         }
     }
 
@@ -371,6 +370,7 @@ public class Controller {
 
                 //get List of fields from the chosen object
                 String name = s.getClass().getSimpleName();
+                fields = populator.getFields(s);
                 switch (name) {
                     case "UniversalBeam" -> {
                         ub = (UniversalBeam) s;
