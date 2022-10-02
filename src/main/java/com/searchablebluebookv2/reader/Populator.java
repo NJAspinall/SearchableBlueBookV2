@@ -18,7 +18,8 @@ import java.util.List;
 
 /**
  * This class's purpose is to format data into required Steel Section objects and
- * return them to the Controller as needed.
+ * return them to the Controller as needed as well as providing an interface to run
+ * operations on the various objects to read data from them.
  *
  * @author Nathan Aspinall
  */
@@ -319,32 +320,6 @@ public class Populator {
     }
 
 
-
-
-
-
-
-
-
-
-    //TODO: Method to take the nested objects and assign them the correct Beam Object
-    public void assignNestedObjects(Object object) {
-        String objectName = object.getClass().getSimpleName();
-
-        switch(objectName) {
-            case "Dimensions" -> {
-
-            }
-
-            case "Properties" -> {
-
-            }
-
-            case "FireParameters" -> {
-
-            }
-        }
-    }
 
 
 
