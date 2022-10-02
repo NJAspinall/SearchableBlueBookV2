@@ -208,9 +208,10 @@ public class Populator {
             ubList.add(newBeam);
         }
 
+        UBReader ubReader = (UBReader) reader;
 
         /* Logic to get Fire and Detailing Information from each line */
-        List<List<String>> fireParams = reader.readFireAndDetailing();
+        List<List<String>> fireParams = ubReader.readFireAndDetailing();
 
 
         int i = 0;
@@ -292,8 +293,9 @@ public class Populator {
         }
 
 
+        UCReader ucReader = (UCReader) reader;
         /* Logic to get Fire and Detailing Information from each line */
-        List<List<String>> fireParams = reader.readFireAndDetailing();
+        List<List<String>> fireParams = ucReader.readFireAndDetailing();
 
 
         int i = 0;

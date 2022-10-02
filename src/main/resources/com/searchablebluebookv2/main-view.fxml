@@ -9,7 +9,7 @@
 <?import javafx.scene.input.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox id="rootContainer" alignment="CENTER" prefHeight="449.0" prefWidth="774.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.searchablebluebookv2.Controller">
+<VBox id="rootContainer" alignment="CENTER" prefHeight="688.0" prefWidth="1275.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.searchablebluebookv2.Controller">
 
 
     <stylesheets>
@@ -47,7 +47,7 @@
                <HBox id="searchBox" fillHeight="false" maxHeight="58.0" minHeight="58.0" prefHeight="58.0" prefWidth="754.0" spacing="10.0">
 
                    <!-- Drop down to select OpenRolledSection type -->
-                   <ComboBox id="dropDownOne" fx:id="shapeSelect" layoutX="15.0" layoutY="33.0" onAction="#onShapeSelect" promptText="Shape" styleClass="dropDown">
+                   <ComboBox id="dropDownOne" fx:id="shapeSelect" layoutX="15.0" layoutY="33.0" onAction="#onShapeSelect" prefHeight="48.0" prefWidth="600.0" promptText="Shape" styleClass="dropDown">
                        <items>
                            <FXCollections fx:factory="observableArrayList">
                               <String fx:value="Universal Beams (UB)" />
@@ -60,6 +60,15 @@
                               <String fx:value="Back to back Unequal Leg Angles (L)" />
                               <String fx:value="Tees (T) split from UB" />
                               <String fx:value="Tees (T) split from UC" />
+
+
+                               <String fx:value="Hot-Finished Circular Hollow Sections" />
+                               <String fx:value="Hot-Finished Square Hollow Section" />
+                               <String fx:value="Hot-Finished Rectangular Hollow Sections" />
+                               <String fx:value="Hot-Finished Elliptical Hollow Sections" />
+                               <String fx:value="Cold-Formed Circular Hollow Sections" />
+                               <String fx:value="Cold-Formed Square Hollow Sections" />
+                               <String fx:value="Cold-Formed Rectangular Hollow Sections" />
                            </FXCollections>
                        </items>
                    </ComboBox>

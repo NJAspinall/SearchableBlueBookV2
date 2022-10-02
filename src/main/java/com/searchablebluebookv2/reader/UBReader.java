@@ -43,10 +43,10 @@ public class UBReader extends SteelReader {
      */
 
     //Dimensions & Properties table (csv file)
-    public static String DIMPROPS = "src/main/java/com/searchablebluebookv2/data/universalBeams/UB-secpropsdimsprops.csv";
+    public static String DIMPROPS = "src/main/java/com/searchablebluebookv2/data/openRolledSections/universalBeams/UB-secpropsdimsprops.csv";
 
     //Fire Parameters and Detailing table (csv file)
-    public static String FIREDETAILS = "src/main/java/com/searchablebluebookv2/data/universalBeams/UB-secpropsdetailingfire.csv";
+    public static String FIREDETAILS = "src/main/java/com/searchablebluebookv2/data/openRolledSections/universalBeams/UB-secpropsdetailingfire.csv";
 
 
 
@@ -156,7 +156,7 @@ public class UBReader extends SteelReader {
             log.addStackTrace(e);
         }
 
-        //return list of UniversalBeam objects
+        //return 2dList containing all read lines from the table
         return sections;
     }
 
@@ -171,7 +171,6 @@ public class UBReader extends SteelReader {
      *
      * @return 2D List of rows of data
      */
-    @Override
     public List<List<String>> readFireAndDetailing() {
 
         List<List<String>> sections = new ArrayList<>();
@@ -205,6 +204,7 @@ public class UBReader extends SteelReader {
             log.addStackTrace(e);
         }
 
+        //return 2dList containing all read lines from the table
         return sections;
     }
 

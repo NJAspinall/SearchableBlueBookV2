@@ -9,6 +9,10 @@ public class ReaderFactory implements ReaderFactoryIF {
      */
     @Override
     public SteelReader createReader(String discrim, Log log) {
+        /*
+         * OpenRolledSections
+         */
+
         if(discrim.equals("Universal Beams (UB)")) {
             return new UBReader(log);
         }
@@ -17,6 +21,19 @@ public class ReaderFactory implements ReaderFactoryIF {
             return new UCReader(log);
         }
 
+        /*
+         * StructuralHollowSections
+         */
+
+        else if(discrim.equals("")) {
+            //return new HFCHSReader(log);
+            return null;
+        }
+
+
+        /*
+         * NULL
+         */
         else {
             return null;
         }
